@@ -27,15 +27,24 @@ class Peche:
         if self.glaciere.verifier_stock():
             poisson = self.__apparition()
             if poisson.categorie != "Fugu":
+                if poisson.categorie == ("Maquereau"):
+                    nom_poisson = "Maquereau |💠|"
+                elif poisson.categorie == ("Aiglefin"):
+                    nom_poisson = "Aiglefin |💠💠|"
+                elif poisson.categorie == ("Thon"):
+                    nom_poisson = "Thon |💠💠💠|"
+                elif poisson.categorie == ("Merlin"):
+                    nom_poisson = "Merlin |✨|"
+
                 choix = int(
-                    input(f"Vous avez attraper un {poisson.categorie}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n"))
+                    input(f"Vous avez attraper un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n"))
                 if choix == 1:
                     self.glaciere.stocker_poisson(poisson)
-                    print("|⤵️|Vous avez stocker ce poisson.")
+                    print("|🪣|Vous avez stocker ce poisson.")
                 else:
-                    print("|↩️|Vous avez relâcher ce poisson.")
+                    print("|💦|Vous avez relâcher ce poisson.")
             else:
-                print("Vous êtes tombé sur un Fugu, vous perdez les trois derniers poissons que vous avez capturé, et vous ne pouvez pas relâcher le Fugu.")
+                print("Vous êtes tombé sur un Fugu |💀|, vous perdez les trois derniers poissons que vous avez capturé, et vous ne pouvez pas relâcher le Fugu.")
                 for _ in range(3):
                     self.glaciere.relacher_poisson()
 
