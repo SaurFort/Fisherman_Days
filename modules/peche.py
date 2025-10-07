@@ -1,22 +1,27 @@
 from glaciere import Glaciere
 from poisson import Poisson
+from filet import Filet
 from random import randint
 
 class Peche:
-    def __init__(self, glaciere: Glaciere):
+    def __init__(self, filet: Filet, glaciere: Glaciere):
+        self.filet = filet
         self.glaciere = glaciere
 
     def __apparition(self) -> Poisson:
-        i = randint(1, 5)
+        proba = self.filet.taux(self.glaciere.place_disponible())
+        i = randint(1, 100)
 
-        if i == 2:
-            return Poisson("Fugu", 0)
-        elif i == 3:
-            return Poisson("Aiglefin", 0)
-        elif i == 4:
-            return Poisson("Thon", 0)
-        else:
+        if i < proba[0] + proba[1]:
             return Poisson("Maquereau", 0)
+        elif (i >= proba[0] + proba[1]) and (i < proba[0] + proba[1] + proba[2]):
+            return Poisson("Aiglefin", 0)
+        elif (i >= proba[0] + proba[1] + proba[2]) and (i < proba[0] + proba[1] + proba[2] + proba[3]):
+            return Poisson("Thon", 0)
+        elif (i >= proba[0] + proba[1] + proba[2] + proba[3]) and (i < proba[0] + proba[1] + proba[2] + proba[3] + proba[4]):
+            return Poisson("Merlin", 0)
+        else:
+            return Poisson("Fugu", 0)
 
     def pecher(self):
         if self.glaciere.verifier_stock():
