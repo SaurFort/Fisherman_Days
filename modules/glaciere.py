@@ -54,7 +54,7 @@ class Glaciere:
                 texte += f"{categorie}: {str(compte[categorie])}\n"
             texte += f"Il vous restes: {self.place_disponible()} emplacement"
         else:
-            texte = "Votre glacière est vide"
+            texte = "Votre glacière est vide |⚠️|"
         
         return texte
 
