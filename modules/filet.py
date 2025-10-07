@@ -2,8 +2,8 @@ class Filet:
     def __init__ (self):
         self.niveau = 1
         
-    def taux (self, places_dispo_glacière):
-        if places_dispo_glacière == 0:
+    def taux (self, places_dispo_glaciere):
+        if places_dispo_glaciere == 0:
             return [35,10,10,10,35]
         elif self.niveau == 1:
             return [55,25,12,1,7]
