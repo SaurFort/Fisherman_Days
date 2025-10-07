@@ -15,6 +15,9 @@ class Glaciere:
         else:
             return 30
 
+    def vider(self):
+        self.__stocke = []
+
     def place_disponible(self) -> int:
         return self.__total_places() - len(self.__stocke)
 
