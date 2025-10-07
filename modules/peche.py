@@ -29,8 +29,8 @@ class Peche:
             choix = int(input(f"Vous avez attraper un {poisson.categorie}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n"))
             if choix == 1:
                 self.glaciere.stocker_poisson(poisson)
-                print("Vous avez stocker ce poisson.")
+                print("|⤵️|Vous avez stocker ce poisson.")
             else:
-                print("Vous avez relâcher ce poisson.")
+                print("|↩️|Vous avez relâcher ce poisson.")
 
             print("Votre stock:\n", self.glaciere)
