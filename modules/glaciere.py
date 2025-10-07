@@ -5,7 +5,7 @@ class Glaciere:
         self.niveau = 1
         self.__stocke = []
 
-    def __place_disponible(self) -> int:
+    def __total_places(self) -> int:
         if self.niveau == 1:
             return 5
         elif self.niveau == 2:
@@ -15,8 +15,11 @@ class Glaciere:
         else:
             return 30
 
+    def place_disponible(self) -> int:
+        return self.__total_places() - len(self.__stocke)
+
     def verifier_stock(self) -> bool:
-        if len(self.__stocke) < self.__place_disponible():
+        if len(self.__stocke) < self.__total_places():
             return True
 
         return False
@@ -32,14 +35,18 @@ class Glaciere:
     def __str__(self) -> str:
         compte = {}
         for poisson in self.__stocke:
-            if not compte[poisson.categorie]:
+            if not poisson.categorie in compte.keys():
                 compte[poisson.categorie] = 1
             else:
                 compte[poisson.categorie] += 1
 
         texte = ""
-        for categorie in compte:
-            texte += categorie + ": " + compte[categorie] + "\n"
+        if len(compte) > 0:
+            for categorie in compte:
+                texte += f"{categorie}: {str(compte[categorie])}\n"
+            texte += f"Il vous restes: {self.place_disponible()} emplacement"
+        else:
+            texte = "Votre glacière est vide"
         
         return texte
 
