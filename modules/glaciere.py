@@ -32,13 +32,18 @@ class Glaciere:
         if self.verifier_stock():
             self.__stocke.append(poisson)
 
-    def __str__(self) -> str:
+    def recuperer_stock(self) -> dict:
         compte = {}
         for poisson in self.__stocke:
             if not poisson.categorie in compte.keys():
                 compte[poisson.categorie] = 1
             else:
                 compte[poisson.categorie] += 1
+
+        return compte
+
+    def __str__(self) -> str:
+        compte = self.recuperer_stock()
 
         texte = ""
         if len(compte) > 0:
