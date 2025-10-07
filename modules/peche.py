@@ -26,11 +26,17 @@ class Peche:
     def pecher(self):
         if self.glaciere.verifier_stock():
             poisson = self.__apparition()
-            choix = int(input(f"Vous avez attraper un {poisson.categorie}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n"))
-            if choix == 1:
-                self.glaciere.stocker_poisson(poisson)
-                print("|⤵️|Vous avez stocker ce poisson.")
+            if poisson.categorie != "Fugu":
+                choix = int(
+                    input(f"Vous avez attraper un {poisson.categorie}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n"))
+                if choix == 1:
+                    self.glaciere.stocker_poisson(poisson)
+                    print("|⤵️|Vous avez stocker ce poisson.")
+                else:
+                    print("|↩️|Vous avez relâcher ce poisson.")
             else:
-                print("|↩️|Vous avez relâcher ce poisson.")
+                print("Vous êtes tombé sur un Fugu, vous perdez les trois derniers poissons que vous avez capturé, et vous ne pouvez pas relâcher le Fugu.")
+                for _ in range(3):
+                    self.glaciere.relacher_poisson()
 
             print("Votre stock:\n", self.glaciere)
