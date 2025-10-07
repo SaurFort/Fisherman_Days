@@ -1,12 +1,13 @@
 
 class Radar:
     def __init__ (self):
-        self.niveau = 1
+        self.niveau = 0
     
     def modif_taux (self):
-        if self.niveau == 1:
+        if self.niveau == 0:
             return "#####"
-        else:
+        if self.niveau == 1:
             return "💠: 55% /💠💠: 25% /💠💠💠: 12% /✨: 1% /💀: 7%"
+
 
 
