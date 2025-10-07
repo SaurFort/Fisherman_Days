@@ -1,4 +1,3 @@
 class Poisson:
-    def __init__(self, categorie: str, proba: float):
+    def __init__(self, categorie: str):
         self.categorie = categorie
-        self.proba = proba

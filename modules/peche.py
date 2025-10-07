@@ -13,15 +13,15 @@ class Peche:
         i = randint(1, 100)
 
         if i < proba[0] + proba[1]:
-            return Poisson("Maquereau", 0)
+            return Poisson("Maquereau")
         elif (i >= proba[0] + proba[1]) and (i < proba[0] + proba[1] + proba[2]):
-            return Poisson("Aiglefin", 0)
+            return Poisson("Aiglefin")
         elif (i >= proba[0] + proba[1] + proba[2]) and (i < proba[0] + proba[1] + proba[2] + proba[3]):
-            return Poisson("Thon", 0)
+            return Poisson("Thon")
         elif (i >= proba[0] + proba[1] + proba[2] + proba[3]) and (i < proba[0] + proba[1] + proba[2] + proba[3] + proba[4]):
-            return Poisson("Merlin", 0)
+            return Poisson("Merlin")
         else:
-            return Poisson("Fugu", 0)
+            return Poisson("Fugu")
 
     def pecher(self):
         if self.glaciere.verifier_stock():
