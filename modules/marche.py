@@ -1,4 +1,4 @@
-from glaciere import Glaciere
+from modules.glaciere import Glaciere
 
 class Marche:
     def __init__(self):

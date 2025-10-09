@@ -1,4 +1,4 @@
-from poisson import Poisson
+from modules.poisson import Poisson
 
 class Glaciere:
     def __init__(self):

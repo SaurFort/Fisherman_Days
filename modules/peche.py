@@ -1,6 +1,6 @@
-from glaciere import Glaciere
-from poisson import Poisson
-from filet import Filet
+from modules.glaciere import Glaciere
+from modules.poisson import Poisson
+from modules.filet import Filet
 from random import randint
 
 class Peche:
