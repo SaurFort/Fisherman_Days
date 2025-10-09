@@ -3,10 +3,11 @@ from modules.glaciere import Glaciere
 from modules.filet import Filet
 from modules.radar import Radar
 from modules.peche import Peche
+from modules.bourse import Bourse
 
 class Joueur :
     def __init__ (self):
-        self.bourse = 1
+        self.bourse = Bourse()
         self.marche = Marche()
         self.glaciere = Glaciere()
         self.filet = Filet()
@@ -46,7 +47,7 @@ class Joueur :
         print(self.glaciere)
         
     def rentrer_prematurer(self):
-        self.bourse += self.marche.vente(self.glaciere)
+        self.bourse.ajouter(self.marche.vente(self.glaciere))
         self.voir_bourse()
         self.fioul = 10
 
