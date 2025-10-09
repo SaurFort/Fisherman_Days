@@ -51,7 +51,7 @@ class Glaciere:
         texte = ""
         if len(compte) > 0:
             for categorie in compte:
-                texte += f"{categorie}: {str(compte[categorie])}\n"
+                texte += f"{categorie}: {str(compte[categorie])}\n "
             texte += f"Il vous restes: {self.place_disponible()} emplacement"
         else:
             texte = "Votre glacière est vide |⚠️|"
