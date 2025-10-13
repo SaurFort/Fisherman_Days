@@ -64,5 +64,9 @@ class Joueur :
     def voir_radar(self):
         print(self.radar)
 
+    def fin(self, prix_bibelot):
+        print("Vous venez d'acheter ce bibelot très joli, en l'achetant vous avez éprouver une énorme joie et partie de la boutique sans demander votre reste.")
+        print(f"En arrivant chez vous, vous vous rendez compte que sous le bibelot il y a écrit une phrase : \"Vous venez de vous faire arnaquez de {prix_bibelot}, merci de m'avoir payer mon voyage au bahamas !\".")
+        print("Après avoir lu tout ça vous ressentez une soudaine tristesse puisque vous avez eu beaucoup de mal pour l'acheter.")
 
 

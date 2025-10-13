@@ -7,6 +7,7 @@ class Marche:
         self.prix_thon = 25.0
         self.prix_merlin = 120.0
         self.prix_fugu = 0.1
+        self.prix_bibelot = 1000
 
     def __inflation(self) -> None:
         self.prix_maquereau = round(self.prix_maquereau * 1.1, 2)
@@ -14,6 +15,7 @@ class Marche:
         self.prix_thon = round(self.prix_thon * 1.1, 2)
         self.prix_merlin = round(self.prix_merlin * 1.1, 2)
         self.prix_fugu = round(self.prix_fugu * 1.1, 2)
+        self.prix_bibelot = round(self.prix_bibelot * 1.1, 0)
 
     def boutique (self,joueur):
         prix_glaciere = 50*(joueur.glaciere.niveau+1)**2+50*(joueur.glaciere.niveau+1)-100
@@ -30,7 +32,7 @@ class Marche:
         if joueur.radar.niveau == 1:
             prix_radar = 'MAX'
 
-        choix=int(input(f"-VOUS ÊTES DANS LA BOUTIQUE-\n1. Glacière [{prix_glaciere}]\n2. Filet [{prix_filet}]\n3. Radar [{prix_radar}]\n4. Retour au marché\n\n"))
+        choix=int(input(f"-VOUS ÊTES DANS LA BOUTIQUE-\n1. Glacière [{prix_glaciere}]\n2. Filet [{prix_filet}]\n3. Radar [{prix_radar}]\n4. Joli bibelot [{self.prix_bibelot}]\n5. Retour au marché\n\n"))
         if choix == 1:
             if joueur.glaciere.niveau < 4 and joueur.bourse.recuperer() >= prix_glaciere:
                 joueur.bourse.retirer(prix_glaciere)
@@ -45,6 +47,11 @@ class Marche:
             if joueur.glaciere.niveau < 1 and joueur.bourse.recuperer() >= prix_radar:
                 joueur.bourse.retirer(prix_radar)
                 joueur.radar.niveau += 1
+
+        if choix == 4:
+            if joueur.bourse.recuperer() >= self.prix_bibelot:
+                joueur.bourse.retirer(self.prix_bibelot)
+                joueur.fin(self.prix_bibelot)
 
         joueur.affichage2()
 
