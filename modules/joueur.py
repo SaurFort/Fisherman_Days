@@ -17,7 +17,7 @@ class Joueur :
         
     def affichage (self):
         while self.fioul > 0:
-            choix = int(input(f"-VOUS ÊTES EN SESSION DE PÊCHE- ?\n 1|🎣| pêcher\n 2|💦| relâcher\n 3|💰| bourse actuelle\n 4|🪣| contenu de la glaciere\n 6|⛔| RENTRER\n\n"))
+            choix = int(input(f"-VOUS ÊTES EN SESSION DE PÊCHE- ?\n 1|🎣| pêcher\n 2|💦| relâcher\n 3|💰| bourse actuelle\n 4|🪣| contenu de la glaciere\n 5|🛰️| radar\n 6|⛔| RENTRER\n\n"))
             if choix == 1:
                 self.pecher_en_session()
                 print(f"if vous reste {self.fioul}L |🛢️| dans le reservoir")
@@ -28,6 +28,8 @@ class Joueur :
             if choix == 4:
                 self.voir_glaciere()
             if choix == 5:
+                self.voir_radarr()
+            if choix == 6:
                 self.rentrer_prematurer()
 
         print("Vous n'avez plus de fioul |🛢️|, vous êtes obligés de rentrer.")
@@ -68,6 +70,7 @@ class Joueur :
         print("Vous venez d'acheter ce bibelot très joli, en l'achetant vous avez éprouver une énorme joie et partie de la boutique sans demander votre reste.")
         print(f"En arrivant chez vous, vous vous rendez compte que sous le bibelot il y a écrit une phrase : \"Vous venez de vous faire arnaquez de {prix_bibelot}, merci de m'avoir payer mon voyage au bahamas !\".")
         print("Après avoir lu tout ça vous ressentez une soudaine tristesse puisque vous avez eu beaucoup de mal pour l'acheter.")
+
 
 
 
