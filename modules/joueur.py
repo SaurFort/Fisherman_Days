@@ -30,7 +30,7 @@ class Joueur :
             if choix == 5:
                 self.rentrer_prematurer()
 
-        print("Vous n'avez plus de fioul, vous êtes obligés de rentrer.")
+        print("Vous n'avez plus de fioul |🛢️|, vous êtes obligés de rentrer.")
         self.rentrer_prematurer()
 
     def affichage2(self):
@@ -63,6 +63,7 @@ class Joueur :
         
     def voir_radar(self):
         print(self.radar)
+
 
 
 
