@@ -17,10 +17,10 @@ class Joueur :
         
     def affichage (self):
         while self.fioul > 0:
-            choix = int(input(f"-VOUS ÊTES EN SESSION DE PÊCHE- ?\n 1|🎣| pêcher\n 2|💦| relâcher\n 3|💰| bourse actuelle\n 4|🪣| contenu de la glaciere\n 5|⛔| RENTRER\n\n"))
+            choix = int(input(f"-VOUS ÊTES EN SESSION DE PÊCHE- ?\n 1|🎣| pêcher\n 2|💦| relâcher\n 3|💰| bourse actuelle\n 4|🪣| contenu de la glaciere\n 6|⛔| RENTRER\n\n"))
             if choix == 1:
                 self.pecher_en_session()
-                print(f"if vous reste {self.fioul}L dans le reservoir")
+                print(f"if vous reste {self.fioul}L |🛢️| dans le reservoir")
             if choix == 2:
                 self.relacher()
             if choix == 3:
@@ -63,6 +63,7 @@ class Joueur :
         
     def voir_radar(self):
         print(self.radar)
+
 
 
 
