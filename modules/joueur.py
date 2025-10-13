@@ -31,7 +31,16 @@ class Joueur :
 
         print("Vous n'avez plus de fioul, vous êtes obligés de rentrer.")
         self.rentrer_prematurer()
-        
+
+    def affichage2(self):
+        choix = int(input("-VOUS ÊTES AU MARCHE- ?\n1. Boutique\n2. Retourner en session"))
+
+        if choix == 1:
+            self.marche.boutique(self)
+        else:
+            self.fioul = 10
+            self.affichage()
+
     def pecher_en_session(self):
         Peche(self.filet,self.glaciere).pecher()
         self.fioul -= 1
@@ -49,7 +58,7 @@ class Joueur :
     def rentrer_prematurer(self):
         self.bourse.ajouter(self.marche.vente(self.glaciere))
         self.voir_bourse()
-        self.fioul = 10
+        self.affichage2()
         
     def voir_radar(self):
         print(self.radar)
