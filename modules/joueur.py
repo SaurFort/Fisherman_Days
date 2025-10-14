@@ -28,7 +28,7 @@ class Joueur :
             if choix == 4:
                 self.voir_glaciere()
             if choix == 5:
-                self.voir_radarr()
+                self.voir_radar()
             if choix == 6:
                 self.rentrer_prematurer()
 
