@@ -71,7 +71,8 @@ class Joueur :
         print(f"En arrivant chez vous, vous vous rendez compte que sous le bibelot il y a écrit une phrase : \"Vous venez de vous faire arnaquez de {prix_bibelot}, merci de m'avoir payer mon voyage au bahamas !\".")
         print("Après avoir lu tout ça vous ressentez une soudaine tristesse puisque vous avez eu beaucoup de mal pour l'acheter.")
         print("vous avvez désormais un nouvel élément de décors qui vous rappelle toute votre aventure")
-        print("Fin.)
+        print("Fin.")
+
 
 
 
