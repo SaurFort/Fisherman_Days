@@ -12,4 +12,4 @@ class Bourse:
         self.__bourse -= round(somme, 2)
 
     def __str__(self) -> str:
-        return f"Argent: {self.__bourse} 💲"
+        return f"Argent: {self.__bourse}💲"
