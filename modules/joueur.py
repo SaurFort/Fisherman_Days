@@ -36,7 +36,7 @@ class Joueur :
         self.rentrer_prematurer()
 
     def affichage2(self):
-        choix = int(input("-VOUS ÊTES AU MARCHE- ?\n1. Boutique\n2. Retourner en session"))
+        choix = int(input("-VOUS ÊTES AU MARCHE- ?\n1. Boutique\n2. Retourner en session\n\n"))
 
         if choix == 1:
             self.marche.boutique(self)
@@ -72,6 +72,7 @@ class Joueur :
         print("Après avoir lu tout ça vous ressentez une soudaine tristesse puisque vous avez eu beaucoup de mal pour l'acheter.")
         print("vous avvez désormais un nouvel élément de décors qui vous rappelle toute votre aventure")
         print("Fin.")
+
 
 
 
