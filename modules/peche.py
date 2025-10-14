@@ -43,9 +43,9 @@ class Peche:
                     self.glaciere.relacher_poisson()
 
                 self.glaciere.stocker_poisson(poisson)
-                print("|🪣|Vous avez stocker ce poisson.")
+                print("|✅|Vous avez stocker ce poisson.")
             else:
-                print("|💦|Vous avez relâcher ce poisson.")
+                print("|❌|Vous avez relâcher ce poisson.")
         else:
             print("Vous êtes tombé sur un Fugu |💀|, vous perdez les trois derniers poissons que vous avez capturé, et vous ne pouvez pas relâcher le Fugu.")
             for _ in range(3):
