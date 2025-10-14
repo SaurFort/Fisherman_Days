@@ -37,7 +37,7 @@ class Peche:
                 nom_poisson = "Merlin |✨|"
 
             choix = int(
-                input(f"Vous avez attraper un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n"))
+                input(f"Vous avez attraper un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n -> "))
             if choix == 1:
                 if self.glaciere.place_disponible() == 0:
                     self.glaciere.relacher_poisson()
