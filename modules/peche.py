@@ -41,7 +41,7 @@ class Peche:
 
             choix = int(
             if poisson.categorie == "Fugu":
-                input(f"Ho! Vous avez attrapé un {nom_poisson}, vos trois dernières captures ont été perdues,\n impossible de retirer le Fugu de la glacière.\n11|⭕| Suivant"))
+                input(f"Ho! Vous avez attrapé un {nom_poisson}, vos trois dernières captures ont été perdues,\n impossible de retirer le Fugu de la glacière.\n1|⭕| Suivant"))
                 if choix == 1:
                     for _ in range(3):
                     self.glaciere.relacher_poisson()
