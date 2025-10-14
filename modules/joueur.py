@@ -20,7 +20,7 @@ class Joueur :
             choix = int(input(f"-VOUS ÊTES EN SESSION DE PÊCHE- ?\n 1|🎣| pêcher\n 2|💦| relâcher\n 3|💰| bourse actuelle\n 4|🪣| contenu de la glaciere\n 5|🛰️| radar\n 6|⛔| RENTRER\n\n"))
             if choix == 1:
                 self.pecher_en_session()
-                print(f"il vous reste {self.fioul}L dans le reservoir\n\n")
+                print(f"Fioul restant: {self.fioul}L\n\n")
             if choix == 2:
                 self.relacher()
             if choix == 3:
@@ -32,11 +32,11 @@ class Joueur :
             if choix == 6:
                 self.rentrer_prematurer()
 
-        print("Vous n'avez plus de fioul , vous êtes obligés de rentrer.")
+        print("Vous n'avez plus de fioul, vous êtes obligés de rentrer.")
         self.rentrer_prematurer()
 
     def affichage2(self):
-        choix = int(input("-VOUS ÊTES AU MARCHE- ?\n1. Boutique\n2. Retourner en session\n\n"))
+        choix = int(input("-VOUS ÊTES AU MARCHE- ?\n1|💰| Boutique\n2|⛔| Retourner en session\n\n"))
 
         if choix == 1:
             self.marche.boutique(self)
@@ -73,6 +73,7 @@ class Joueur :
         print("Après avoir lu tout ça vous ressentez une soudaine tristesse puisque vous avez eu beaucoup de mal pour l'acheter.")
         print("vous avvez désormais un nouvel élément de décors qui vous rappelle toute votre aventure")
         print("Fin.")
+
 
 
 
