@@ -5,7 +5,7 @@ class Glaciere:
         self.niveau = 1
         self.__stocke = []
 
-    def __total_places(self) -> int:
+    def total_places(self) -> int:
         if self.niveau == 1:
             return 5
         elif self.niveau == 2:
@@ -19,10 +19,10 @@ class Glaciere:
         self.__stocke = []
 
     def place_disponible(self) -> int:
-        return self.__total_places() - len(self.__stocke)
+        return self.total_places() - len(self.__stocke)
 
     def verifier_stock(self) -> bool:
-        if len(self.__stocke) < self.__total_places():
+        if len(self.__stocke) < self.total_places():
             return True
 
         return False

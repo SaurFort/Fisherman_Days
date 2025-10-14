@@ -49,5 +49,6 @@ class Peche:
             print("Vous êtes tombé sur un Fugu |💀|, vous perdez les trois derniers poissons que vous avez capturé, et vous ne pouvez pas relâcher le Fugu.")
             for _ in range(3):
                 self.glaciere.relacher_poisson()
+            self.glaciere.stocker_poisson(poisson)
 
         print("Votre stock:\n", self.glaciere)

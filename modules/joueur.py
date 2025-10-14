@@ -40,8 +40,8 @@ class Joueur :
 
         if choix == 1:
             self.marche.boutique(self)
-        else:
-            self.fioul = 10
+        if choix == 2:
+            self.fioul = self.glaciere.total_places() * 2
             self.affichage()
 
     def pecher_en_session(self):
@@ -64,11 +64,12 @@ class Joueur :
         self.affichage2()
         
     def voir_radar(self):
-        print(self.radar)
+        self.radar.afficher(self.filet.taux(self.glaciere.place_disponible()))
 
     def fin(self, prix_bibelot):
-        print("Vous venez d'acheter ce bibelot très joli, en l'achetant vous avez éprouver une énorme joie et partie de la boutique sans demander votre reste.")
-        print(f"En arrivant chez vous, vous vous rendez compte que sous le bibelot il y a écrit une phrase : \"Vous venez de vous faire arnaquez de {prix_bibelot}, merci de m'avoir payer mon voyage au bahamas !\".")
+        print("Vous venez d'acheter ce bibelot très joli, en l'achetant vous avez éprouver une énorme joie et êtes partie de la boutique sans demander votre reste.")
+        print("En arrivant chez vous, vous vous rendez compte que sous le bibelot il y a écrit une phrase :")
+        print(f"\"Vous venez de vous faire arnaquez de {prix_bibelot}, merci de m'avoir payer mon voyage au bahamas !\"")
         print("Après avoir lu tout ça vous ressentez une soudaine tristesse puisque vous avez eu beaucoup de mal pour l'acheter.")
         print("vous avvez désormais un nouvel élément de décors qui vous rappelle toute votre aventure")
         print("Fin.")
