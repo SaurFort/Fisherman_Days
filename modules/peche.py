@@ -10,29 +10,30 @@ class Peche:
 
     def __apparition(self) -> Poisson:
         proba = self.filet.taux(self.glaciere.place_disponible())
-        i = randint(1, 100)
+        poissons = ["Maquereau", "Aiglefin", "Thon", "Merlin", "Fugu"]
 
-        if i < proba[0] + proba[1]:
-            return Poisson("Maquereau")
-        elif (i >= proba[0] + proba[1]) and (i < proba[0] + proba[1] + proba[2]):
-            return Poisson("Aiglefin")
-        elif (i >= proba[0] + proba[1] + proba[2]) and (i < proba[0] + proba[1] + proba[2] + proba[3]):
-            return Poisson("Thon")
-        elif (i >= proba[0] + proba[1] + proba[2] + proba[3]) and (i < proba[0] + proba[1] + proba[2] + proba[3] + proba[4]):
-            return Poisson("Merlin")
-        else:
-            return Poisson("Fugu")
+        x = randint(1, 100)
+
+        proba_cumule = 0
+        # Enumerate -> retourne index + valeur (foreach PHP)
+        for i, p in enumerate(proba):
+            proba_cumule += p
+            if x <= proba_cumule:
+                return Poisson(poissons[i])
+
+        # Fallback
+        return Poisson(poissons[-1])
 
     def pecher(self):
         poisson = self.__apparition()
         if poisson.categorie != "Fugu":
-            if poisson.categorie == ("Maquereau"):
+            if poisson.categorie == "Maquereau":
                 nom_poisson = "Maquereau |💠|"
-            elif poisson.categorie == ("Aiglefin"):
+            elif poisson.categorie == "Aiglefin":
                 nom_poisson = "Aiglefin |💠💠|"
-            elif poisson.categorie == ("Thon"):
+            elif poisson.categorie == "Thon":
                 nom_poisson = "Thon |💠💠💠|"
-            elif poisson.categorie == ("Merlin"):
+            elif poisson.categorie == "Merlin":
                 nom_poisson = "Merlin |✨|"
 
             choix = int(
