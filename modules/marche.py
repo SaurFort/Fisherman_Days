@@ -32,7 +32,7 @@ class Marche:
         if joueur.radar.niveau == 1:
             prix_radar = 'MAX'
 
-        choix=int(input(f"-VOUS ÊTES DANS LA BOUTIQUE-\n1. Glacière [{prix_glaciere}]\n2. Filet [{prix_filet}]\n3. Radar [{prix_radar}]\n4. Joli bibelot [{self.prix_bibelot}]\n5. Retour au marché\n\n"))
+        choix=int(input(f"-VOUS ÊTES DANS LA BOUTIQUE-\n1. Glacière [{prix_glaciere}💲]\n2. Filet [{prix_filet}💲]\n3. Radar [{prix_radar}💲]\n4. Joli bibelot [{self.prix_bibelot}💲]\n5. Retour au marché\n\n"))
         if choix == 1:
             if joueur.glaciere.niveau < 4 and joueur.bourse.recuperer() >= prix_glaciere:
                 joueur.bourse.retirer(prix_glaciere)
