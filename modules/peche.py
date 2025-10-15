@@ -39,7 +39,7 @@ class Peche:
                 nom_poisson = "Fugu |💀|"
         
             choix = 0
-            if poisson.categorie = "Fugu":
+            if poisson.categorie == "Fugu":
                 choix = input(int(f"Ho! Vous avez attrapé un {nom_poisson}, vos trois dernières captures ont été perdus,\n impossible de retirer le Fugu de la glacière.\n1|⭕| Suivant"))
                 if choix == 1:
                     for i in range(3):
