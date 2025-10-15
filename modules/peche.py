@@ -47,7 +47,7 @@ class Peche:
                 print("|✅|Vous avez stocké ce poisson.")
                 print("Votre stock:\n", self.glaciere)
             
-            elif poisson.categorie == "Maquereau" or "Aiglefin" or "Thon" or "Merlin": #ou bien (elif p.c != "Fugu")
+            if poisson.categorie == "Maquereau" or "Aiglefin" or "Thon" or "Merlin": #ou bien (elif p.c != "Fugu")
                 choix = input(f"Vous avez attrapé un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n -> ")
                 if choix == 1:
                     if self.glaciere.place_disponible() == 0:
@@ -55,7 +55,7 @@ class Peche:
 
                 self.glaciere.stocker_poisson(poisson)
                 print("|✅|Vous avez stocké ce poisson.")
-            else:
-                print("|❌|Vous avez relâché ce poisson.")
+                else:
+                    print("|❌|Vous avez relâché ce poisson.")
 
         print("Votre stock:\n", self.glaciere)
