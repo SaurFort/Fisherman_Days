@@ -26,17 +26,16 @@ class Peche:
 
     def pecher(self):
         poisson = self.__apparition()
-        if poisson.categorie != "Fugu":
-            if poisson.categorie == "Maquereau":
-                nom_poisson = "Maquereau |💠|"
-            elif poisson.categorie == "Aiglefin":
-                nom_poisson = "Aiglefin |💠💠|"
-            elif poisson.categorie == "Thon":
-                nom_poisson = "Thon |💠💠💠|"
-            elif poisson.categorie == "Merlin":
-                nom_poisson = "Merlin |✨|"
-            elif poisson.categorie == "Fugu":
-                nom_poisson = "Fugu |💀|"
+        if poisson.categorie == "Maquereau":
+            nom_poisson = "Maquereau |💠|"
+        elif poisson.categorie == "Aiglefin":
+            nom_poisson = "Aiglefin |💠💠|"
+        elif poisson.categorie == "Thon":
+            nom_poisson = "Thon |💠💠💠|"
+        elif poisson.categorie == "Merlin":
+            nom_poisson = "Merlin |✨|"
+        elif poisson.categorie == "Fugu":
+            nom_poisson = "Fugu |💀|"
         
             choix = 0
             if poisson.categorie == "Fugu":
@@ -48,7 +47,7 @@ class Peche:
                 print("|✅|Vous avez stocké ce poisson.")
                 print("Votre stock:\n", self.glaciere)
             
-            elif poisson.categorie != "Fugu":
+            elif poisson.categorie == "Maquereau" or "Aiglefin" or "Thon" or "Merlin": #ou bien (elif p.c != "Fugu")
                 choix = input(f"Vous avez attrapé un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n -> ")
                 if choix == 1:
                     if self.glaciere.place_disponible() == 0:
