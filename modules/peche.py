@@ -37,17 +37,21 @@ class Peche:
                 nom_poisson = "Merlin |✨|"
             elif poisson.categorie == "Fugu":
                 nom_poisson = "Fugu |💀|"
-            
-
-            choix = int(
+        
+            choix = 0
             if poisson.categorie == "Fugu":
-                input(f"Ho! Vous avez attrapé un {nom_poisson}, vos trois dernières captures ont été perdues,\n impossible de retirer le Fugu de la glacière.\n1|⭕| Suivant"))
+                choix = input(int(f"Ho! Vous avez attrapé un {nom_poisson}, vos trois dernières captures ont été perdus,\n impossible de retirer le Fugu de la glacière.\n1|⭕| Suivant"))
                 if choix == 1:
                     for _ in range(3):
                     self.glaciere.relacher_poisson()
                 self.glaciere.stocker_poisson(poisson)
+                if choix != 1:
+                    for _ in range(3):
+                    self.glaciere.relacher_poisson()
+                self.glaciere.stocker_poisson(poisson)
+                    
             
-            elif input(f"Vous avez attrapé un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n -> "))
+            elif choix = input(int(f"Vous avez attrapé un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n -> "))
                 if choix == 1:
                     if self.glaciere.place_disponible() == 0:
                         self.glaciere.relacher_poisson()
