@@ -1,10 +1,10 @@
 from modules.marche import Marche
 from modules.glaciere import Glaciere
 from modules.filet import Filet
-from modules.radar import Radar
 from modules.peche import Peche
 from modules.bourse import Bourse
 from modules.radar import Radar
+import sys
 
 class Joueur :
     def __init__ (self):
@@ -71,8 +71,9 @@ class Joueur :
         print("En arrivant chez vous, vous vous rendez compte que sous le bibelot il y a écrit une phrase :")
         print(f"\"Vous venez de vous faire arnaquez de {prix_bibelot}, merci de m'avoir payer mon voyage au bahamas !\"")
         print("Après avoir lu tout ça vous ressentez une soudaine tristesse puisque vous avez eu beaucoup de mal pour l'acheter.")
-        print("vous avvez désormais un nouvel élément de décors qui vous rappelle toute votre aventure")
+        print("Vous avez désormais un nouvel élément de décors qui vous rappelle toute votre aventure")
         print("Fin.")
+        sys.exit()
 
 
 
