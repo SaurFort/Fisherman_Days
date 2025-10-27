@@ -6,7 +6,7 @@ choix = input("Êtes-vous prêt ? (Oui/oui)\n")
 if choix.lower() == "oui" or choix.lower() == "o":
     print("Parfait !")
 else:
-    print("De toutes façon vous n'avez pas le choix !")
+    print("De toute façon vous n'avez pas le choix !")
 
 joueur = Joueur()
 joueur.affichage()
