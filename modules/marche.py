@@ -48,7 +48,7 @@ class Marche:
                 joueur.filet.niveau += 1
             
         if choix == 3:
-            if joueur.glaciere.niveau < 1 and joueur.bourse.recuperer() >= prix_radar:
+            if joueur.radar.niveau < 1 and joueur.bourse.recuperer() >= prix_radar:
                 joueur.bourse.retirer(prix_radar)
                 joueur.radar.niveau += 1
 
