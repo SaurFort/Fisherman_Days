@@ -36,7 +36,7 @@ class Joueur :
         self.rentrer_prematurer()
 
     def affichage2(self):
-        choix = int(input("-VOUS ÊTES AU PORT- ?\n1|💰| Marché\n2|🎣| Retourner en session\n\n"))
+        choix = int(input("-VOUS ÊTES AU PORT-\n1|💰| Marché\n2|🎣| Retourner en session\n\n"))
 
         if choix == 1:
             self.marche.boutique(self)
@@ -76,6 +76,7 @@ class Joueur :
         print("Merci d'avoir joué")
         print("MoonCore")
         sys.exit()
+
 
 
 
