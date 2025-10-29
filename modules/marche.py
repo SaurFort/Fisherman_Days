@@ -1,5 +1,4 @@
 from modules.glaciere import Glaciere
-from modules.joueur import Joueur
 
 class Marche:
     def __init__(self):
