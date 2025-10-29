@@ -31,7 +31,7 @@ class Marche:
         if joueur.radar.niveau == 1:
             prix_radar = 'MAX'
 
-        choix=int(input(f"-VOUS ÊTES DANS LA BOUTIQUE-\n1. Glacière [{prix_glaciere}💲]\n2. Filet [{prix_filet}💲]\n3. Radar [{prix_radar}💲]\n4. Joli bibelot [{self.prix_bibelot}💲]\n5. Retour au marché\n\n"))
+        choix=int(input(f"-VOUS ÊTES DANS LE MARCHÉ-\n1. Glacière lvl.{joueur.glacière.niveau} [{prix_glaciere}💲]\n2. Filet lvl.{joueur.filet.niveau} [{prix_filet}💲]\n3. Radar lvl.1 [{prix_radar}💲]\n4. Joli bibelot [{self.prix_bibelot}💲] -1 seul exemplaire-\n5. Retour au port\n\n"))
         # Condition de debug
         if choix == 666:
             joueur.bourse.ajouter(1000000)
