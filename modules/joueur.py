@@ -17,7 +17,7 @@ class Joueur :
         
     def affichage (self):
         while self.fioul > 0:
-            choix = int(input(f"-VOUS ÊTES EN SESSION DE PÊCHE--------------------- \n 1|🎣| Pêcher\n 2|💦| Relâcher\n 3|💲| Bourse actuelle\n 4|🪣| Contenu de la glaciere\n 5|🛰️| Radar\n 6|⛔| RENTRER\n\n -> "))
+            choix = int(input(f"-VOUS ÊTES EN SESSION DE PÊCHE\n 1|🎣| Pêcher\n 2|💦| Relâcher\n 3|💲| Bourse actuelle\n 4|🪣| Contenu de la glaciere\n 5|🛰️| Radar\n 6|⛔| RENTRER\n\n -> "))
             if choix == 1:
                 self.pecher_en_session()
                 print(f"Fioul restant: {self.fioul}L\n\n")
@@ -73,8 +73,10 @@ class Joueur :
         print("Après avoir lu ceci vous ressentez une soudaine tristesse du au mal que vous vous êtes donné pour l'obtenir.")
         print("Fin.")
         print(" ")
-        print("Merci d'avoir joué, MoonCore")
+        print("Merci d'avoir joué")
+        print("MoonCore")
         sys.exit()
+
 
 
 
