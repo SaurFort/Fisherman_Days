@@ -74,8 +74,9 @@ class Joueur :
         print("Fin.")
         print(" ")
         print("Merci d'avoir joué")
-        print("MoonCore")
+        print("MoonCore Studio")
         sys.exit()
+
 
 
 
