@@ -67,15 +67,16 @@ class Joueur :
         self.radar.afficher(self.filet.taux(self.glaciere.place_disponible()))
 
     def fin(self, prix_bibelot):
-        print("Vous venez d'acheter ce très joli bibelot, en l'achetant vous avez éprouver une énorme joie et êtes parti de la boutique sans demander votre reste.")
-        print("En arrivant chez vous, vous vous apercevez qu'une phrase est écrite sous l'objet :")
-        print(f"\"Vous venez de vous faire arnaquez {prix_bibelot}💲, merci de m'avoir payer mon voyage au bahamas ! AH ! AH !\"")
-        print("Après avoir lu ceci vous ressentez une soudaine tristesse du au mal que vous vous êtes donné pour l'obtenir.")
+        print("Vous venez d'acheter ce très joli bibelot, en l'achetant vous ressentez une vague de bonheur et d'accomplissement.")
+        print("En arrivant chez vous, vous vous apercevez qu'une phrase est écrite sous l'objet.")
+        print(f"\"Vous venez de vous faire arnaquez {prix_bibelot}💲, merci de m'avoir payer mon voyage au Bahamas !\"")
+        print("A la lecture de ce mot vous ressentez une violente redescente et repenssez au mal que vous avez eu pour l'obtenir.")
         print("Fin.")
         print(" ")
         print("Merci d'avoir joué")
         print("MoonCore")
         sys.exit()
+
 
 
 
