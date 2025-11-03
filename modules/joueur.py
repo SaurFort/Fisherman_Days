@@ -17,6 +17,7 @@ class Joueur :
         self.radar = Radar()
         self.fioul = 10
         self.compteur_de_merlin = 0
+        self.aide = Aide()
         
     def affichage (self):
         while self.fioul > 0:
@@ -105,6 +106,7 @@ class Joueur :
         print(f"fins débloquées: {compteur_fins}/4")
         
         sys.exit()
+
 
 
 
