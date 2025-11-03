@@ -39,13 +39,13 @@ class Peche:
             nom_poisson = "Fugu |💀|"
 
         if poisson.categorie == "Fugu":
-            input(f"Ho! Vous avez attrapé un {nom_poisson}, vos trois dernières captures ont été perdus,\n impossible de retirer le Fugu de la glacière.\n|⭕| Suivant\n\n")
+            input(f"Ho! Vous avez attrapé un {nom_poisson}, vos trois dernières captures ont été perdus,\n impossible de retirer le Fugu de la glacière.\n|⭕| Suivant\n\n _")
             for i in range(3):
                 self.glaciere.relacher_poisson()
             self.glaciere.stocker_poisson(poisson)
             print("|✅|Vous avez stocké ce poisson.")
         else:
-            choix = Validateur.choix(f"Vous avez attrapé un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n -> ", ["1","2"])
+            choix = Validateur.choix(f"Vous avez attrapé un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n _", ["1","2"])
             if choix == "1":
                 if self.glaciere.place_disponible() == 0:
                     self.glaciere.relacher_poisson()
