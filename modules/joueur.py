@@ -22,7 +22,7 @@ class Joueur :
     def affichage (self):
         while self.fioul > 0:
             choix = Validateur.choix("-VOUS ÊTES EN SESSION DE PÊCHE- \n 1|🎣| Pêcher\n 2|💦| Relâcher\n 3|💲| Bourse "
-                                     "actuelle\n 4|🪣| Contenu de la glaciere\n 5|🛰️| Radar\n6 |❔| Aide \n7 |⛔| RENTRER AU PORT\n\n -> ", ["1","2","3","4","5","6","7"])
+                                     "actuelle\n 4|🪣| Contenu de la glaciere\n 5|🛰️| Radar\n 6|❔| Aide \n 7|⛔| RENTRER AU PORT\n\n -> ", ["1","2","3","4","5","6","7"])
             if choix == "1":
                 self.pecher_en_session()
                 print(f"Fioul restant: {self.fioul}L\n\n")
@@ -45,7 +45,7 @@ class Joueur :
         self.rentrer_prematurer()
 
     def affichage2(self):
-        choix = Validateur.choix("-VOUS ÊTES AU PORT-\n1 |💰| Marché\n2 |🎣| Retourner en session\n\n", ["1","2","3"])
+        choix = Validateur.choix("-VOUS ÊTES AU PORT-\n 1|💰| Marché\n 2|🎣| Retourner en session\n\n", ["1","2","3"])
 
         if choix == "1":
             self.marche.boutique(self)
@@ -106,6 +106,7 @@ class Joueur :
         print(f"fins débloquées: {compteur_fins}/4")
         
         sys.exit()
+
 
 
 
