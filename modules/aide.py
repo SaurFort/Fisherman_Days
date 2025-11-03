@@ -2,7 +2,7 @@ from modules.validator2000 import Validateur
 
 class Aide:
     def afficher_aide_joueur(self):
-        choix = Validateur.choix("QU'EST CE QUI VOUS TRACASSE ? \n 1|❔|Le but du jeu ? \n 2|❓|La Pêche ? \n 3|❓|Relâcher ? \n 4|❓|La Bourse ?\n 5|❓|La Glacière ? \n 6|❓|Le Radar ? \n 7|❓|Le Port ? \n8|❔|Si ma Glacière est pleine ? \n9|❔|Les prix des poissons ? \n10|❔|Le prix du Bibelot ? \n11|⛔|RETOUR", ["1","2","3","4","5","6","7","8","9","10","11"]\n\n _)
+        choix = Validateur.choix("QU'EST CE QUI VOUS TRACASSE ? \n 1|❔|Le but du jeu ? \n 2|❓|La Pêche ? \n 3|❓|Relâcher ? \n 4|❓|La Bourse ?\n 5|❓|La Glacière ? \n 6|❓|Le Radar ? \n 7|❓|Le Port ? \n8|❔|Si ma Glacière est pleine ? \n9|❔|Les prix des poissons ? \n10|❔|Le prix du Bibelot ? \n11|⛔|RETOUR\n\n _", ["1","2","3","4","5","6","7","8","9","10","11"])
         if choix == "1" :
             print("🟡 Vous devez pêcher et vendre des poissons, pour acheter un joli bibelot.")
         elif choix == "2" :
@@ -32,6 +32,7 @@ class Aide:
             return
         if choix == "2" : 
             self.afficher_aide_joueur()
+
 
 
 
