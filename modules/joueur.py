@@ -64,7 +64,7 @@ class Joueur :
         self.affichage2()
         
     def voir_radar(self):
-        self.radar.afficher(self.filet.taux(self.glaciere.place_disponible()))
+        print(self.radar.afficher(self.filet.taux(self.glaciere.place_disponible())))
 
     def fin(self, prix_bibelot):
         print("Vous venez d'acheter ce très joli bibelot, en l'achetant vous ressentez une vague de bonheur et d'accomplissement.")
