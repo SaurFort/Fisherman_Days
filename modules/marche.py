@@ -11,12 +11,12 @@ class Marche:
         self.prix_bibelot = 10000
 
     def __inflation(self) -> None:
-        self.prix_maquereau = round(self.prix_maquereau * 1.01, 2)
-        self.prix_aiglefin = round(self.prix_aiglefin * 1.01, 2)
-        self.prix_thon = round(self.prix_thon * 1.01, 2)
-        self.prix_merlin = round(self.prix_merlin * 1.01, 2)
-        self.prix_fugu = round(self.prix_fugu * 1.01, 2)
-        self.prix_bibelot = round(self.prix_bibelot * 1.20, 0)
+        self.prix_maquereau = round(self.prix_maquereau * 1.1, 2)
+        self.prix_aiglefin = round(self.prix_aiglefin * 1.1, 2)
+        self.prix_thon = round(self.prix_thon * 1.1, 2)
+        self.prix_merlin = round(self.prix_merlin * 1.1, 2)
+        self.prix_fugu = round(self.prix_fugu * 1.1, 2)
+        self.prix_bibelot = round(self.prix_bibelot * 1.05, 0)
 
     def boutique (self,joueur):
         joueur.voir_bourse()
@@ -59,7 +59,6 @@ class Marche:
 
         if choix == "4":
             if joueur.bourse.recuperer() >= self.prix_bibelot:
-                joueur.bourse.retirer(self.prix_bibelot)
                 joueur.fin(self.prix_bibelot)
             else:
                 joueur.affichage2()
@@ -74,19 +73,19 @@ class Marche:
         for poisson in compte:
             if poisson == "Aiglefin":
                 argent += compte[poisson] * self.prix_aiglefin
-                self.prix_aiglefin = round((self.prix_aiglefin * 0.97) * compte[poisson], 2)
+                self.prix_aiglefin = round(self.prix_aiglefin * (0.99 ** compte[poisson]), 2)
             elif poisson == "Thon":
                 argent += compte[poisson] * self.prix_thon
-                self.prix_thon = round((self.prix_thon * 0.97) * compte[poisson], 2)
+                self.prix_thon = round(self.prix_thon * (0.99 ** compte[poisson]), 2)
             elif poisson == "Merlin":
                 argent += compte[poisson] * self.prix_merlin
-                self.prix_merlin = round((self.prix_merlin * 0.97) * compte[poisson], 2)
+                self.prix_merlin = round(self.prix_merlin * (0.99 ** compte[poisson]), 2)
             elif poisson == "Fugu":
                 argent += compte[poisson] * self.prix_fugu
-                self.prix_fugu = round((self.prix_fugu * 0.97) * compte[poisson], 2)
+                self.prix_fugu = round(self.prix_fugu * (0.99 ** compte[poisson]), 2)
             else:
                 argent += compte[poisson] * self.prix_maquereau
-                self.prix_maquereau = round((self.prix_maquereau * 0.97) * compte[poisson], 2)
+                self.prix_maquereau = round(self.prix_maquereau * (0.99 ** compte[poisson]), 2)
 
         glaciere.vider()
         return argent
