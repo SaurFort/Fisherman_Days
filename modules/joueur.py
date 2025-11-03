@@ -86,7 +86,7 @@ class Joueur :
         if self.glaciere.niveau == 0 and self.filet.niveau == 0 and self.radar.niveau == 0:
             print("nouveau prix; |🏷️| -Ne perd pas le Nord-")
             print("finir le jeu en achetant seulement le bibelot, splendide !\n")
-        if self.bourse >= 1000000:
+        if self.bourse.recuperer() >= 1000000:
             print("nouveau prix; |📜| -Avide d'argent-")
             print("finir le jeu en étant richissime, magistral !\n")
         if self.compteur_de_merlin >= 100:
@@ -94,6 +94,7 @@ class Joueur :
             print("finir le jeu avec plus de 100 merlins capturés, extraordinaire !\n")
         
         sys.exit()
+
 
 
 
