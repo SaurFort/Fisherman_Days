@@ -18,6 +18,9 @@ class Glaciere:
     def vider(self):
         self.__stocke = []
 
+    def sommet(self):
+        return self.__stocke[-1]
+    
     def place_disponible(self) -> int:
         return self.total_places() - len(self.__stocke)
 
