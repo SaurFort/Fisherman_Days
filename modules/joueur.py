@@ -80,7 +80,7 @@ class Joueur :
         print("Merci d'avoir joué")
         print("MoonCore Studio\n\n")
         
-         if self.glaciere.niveau == 4 and self.filet.niveau == 3 and self.radar.niveau == 1:
+        if self.glaciere.niveau == 4 and self.filet.niveau == 3 and self.radar.niveau == 1:
             print("nouveau prix; |🔖| -Addict à la consommation-")
             print("finir le jeu en achetant toutes les améliorations, félicitations !\n")
         if self.glaciere.niveau == 0 and self.filet.niveau == 0 and self.radar.niveau == 0:
@@ -94,6 +94,7 @@ class Joueur :
             print("finir le jeu avec plus de 100 merlins capturés, extraordinaire !\n")
         
         sys.exit()
+
 
 
 
