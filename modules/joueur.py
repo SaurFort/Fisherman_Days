@@ -89,8 +89,12 @@ class Joueur :
         if self.bourse >= 1000000:
             print("nouveau prix; |📜| -Avide d'argent-")
             print("finir le jeu en étant richissime, magistral !\n")
+        if self.compteur_de_merlin >= 100:
+            print("nouveau prix; |🎖️| -Le paria devenu légende-")
+            print("finir le jeu avec plus de 100 merlins capturés, extraordinaire !\n")
         
         sys.exit()
+
 
 
 
