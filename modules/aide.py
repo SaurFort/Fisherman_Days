@@ -2,7 +2,7 @@ class Aide:
     def __init__ (self):
         
     def afficher_aide_joueur (self):
-        choix = print(int(input(f"QU'EST CE QUI VOUS TRACASSE ? \n1. Le but du jeu ? \n2. La Pêche ? \n3. Relâcher ? \n4. La Bourse ?\n5. La Glacière ? \n6. Le Radar ? \n7. Le Port ? \n8. Si ma Glacière est pleine ? \n9. Les prix des poissons ? \n10. Le prix du Bibelot ? \n11. RETOUR, ["1","2","3","4","5","6","7","8","9","10","11"])))
+        choix = (int(input(f"QU'EST CE QUI VOUS TRACASSE ? \n1. Le but du jeu ? \n2. La Pêche ? \n3. Relâcher ? \n4. La Bourse ?\n5. La Glacière ? \n6. Le Radar ? \n7. Le Port ? \n8. Si ma Glacière est pleine ? \n9. Les prix des poissons ? \n10. Le prix du Bibelot ? \n11. RETOUR, ["1","2","3","4","5","6","7","8","9","10","11"]))
         if choix == 1 :
             print("Vous devez pêcher et vendre des poissons, pour acheter un joli bibelot.")
         elif choix == 2 :
@@ -32,4 +32,5 @@ class Aide:
         if choix == 1 : 
             
         if choix == 2 : 
+
             afficher_aide_joueur()
