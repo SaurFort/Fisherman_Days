@@ -41,16 +41,19 @@ class Marche:
             if joueur.glaciere.niveau < 4 and joueur.bourse.recuperer() >= prix_glaciere:
                 joueur.bourse.retirer(prix_glaciere)
                 joueur.glaciere.niveau += 1
+                print("✅ Votre Glacière a été amélioré avec succès ! ✅")
                 
         if choix == 2:
             if joueur.filet.niveau < 3 and joueur.bourse.recuperer() >= prix_filet:
                 joueur.bourse.retirer(prix_filet)
                 joueur.filet.niveau += 1
+                print("✅ Votre Filet a été amélioré avec succès ! ✅")
             
         if choix == 3:
             if joueur.radar.niveau < 1 and joueur.bourse.recuperer() >= prix_radar:
                 joueur.bourse.retirer(prix_radar)
                 joueur.radar.niveau += 1
+                print("✅ Votre Radar a été acquis avec succès ! ✅")
 
         if choix == 4:
             if joueur.bourse.recuperer() >= self.prix_bibelot:
