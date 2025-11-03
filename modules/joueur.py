@@ -72,6 +72,7 @@ class Joueur :
         print(self.radar.afficher(self.filet.taux(self.glaciere.place_disponible())))
 
     def fin(self, prix_bibelot):
+        compteur_fins = 0
         print("Vous venez d'acheter ce très joli bibelot, en l'achetant vous ressentez une vague de bonheur et d'accomplissement.")
         print("En arrivant chez vous, vous vous apercevez qu'une phrase est écrite sous l'objet.")
         print(f"\"Vous venez de vous faire arnaquez {prix_bibelot}💲, merci de m'avoir payer mon voyage au Bahamas !\"")
@@ -83,17 +84,23 @@ class Joueur :
         if self.glaciere.niveau == 4 and self.filet.niveau == 3 and self.radar.niveau == 1:
             print("nouveau prix; |🔖| -Addict à la consommation-")
             print("finir le jeu en achetant toutes les améliorations, félicitations !\n")
+            compteur_fins += 1
         if self.glaciere.niveau == 0 and self.filet.niveau == 0 and self.radar.niveau == 0:
             print("nouveau prix; |🏷️| -Ne perd pas le Nord-")
             print("finir le jeu en achetant seulement le bibelot, splendide !\n")
-        if self.bourse.recuperer() >= 1000000:
+            compteur_fins += 1
+        if self.bourse.recuperer() >= 1000000 + self.prix_bibelot:
             print("nouveau prix; |📜| -Avide d'argent-")
             print("finir le jeu en étant richissime, magistral !\n")
-        if self.compteur_de_merlin >= 100:
-            print("nouveau prix; |🎖️| -Le paria devenu légende-")
+            compteur_fins += 1
+        if self.peche.compteur_de_merlin >= 100:
+            print("nouveau prix; |🎖️| -Le paria devenu Légende-")
             print("finir le jeu avec plus de 100 merlins capturés, extraordinaire !\n")
+            compteur_fins += 1
+        print(f"fins débloquées: {compteur_fins}/4")
         
         sys.exit()
+
 
 
 
