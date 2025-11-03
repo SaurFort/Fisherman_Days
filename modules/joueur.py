@@ -38,13 +38,16 @@ class Joueur :
         self.rentrer_prematurer()
 
     def affichage2(self):
-        choix = Validateur.choix("-VOUS ÊTES AU PORT-\n1|💰| Marché\n2|🎣| Retourner en session\n\n", ["1","2"])
+        choix = Validateur.choix("-VOUS ÊTES AU PORT-\n1|💰| Marché\n|❔| Prix des poissons \n2|🎣| Retourner en session\n\n", ["1","2"])
 
         if choix == "1":
             self.marche.boutique(self)
         if choix == "2":
+            print(f"|💠: {self.marche.prix.maquereau} |💠💠: {self.marche.prix.aiglefin} |💠💠💠: {self.marche.prix.thon} |✨: {self.marche.prix.merlin} |💀: {self.marche.prix.fugu} |")
+        if choix == "3":
             self.fioul = self.glaciere.total_places() * 2
             self.affichage()
+        
 
     def pecher_en_session(self):
         Peche(self.filet,self.glaciere).pecher()
@@ -73,11 +76,22 @@ class Joueur :
         print("En arrivant chez vous, vous vous apercevez qu'une phrase est écrite sous l'objet.")
         print(f"\"Vous venez de vous faire arnaquez {prix_bibelot}💲, merci de m'avoir payer mon voyage au Bahamas !\"")
         print("A la lecture de ce mot vous ressentez une violente redescente et repenssez au mal que vous avez eu pour l'obtenir.")
-        print("Fin.")
-        print(" ")
+        print("Fin.\n")
         print("Merci d'avoir joué")
-        print("MoonCore Studio")
+        print("MoonCore Studio\n\n")
+        
+         if self.glaciere.niveau == 4 and self.filet.niveau == 3 and self.radar.niveau == 1:
+            print("nouveau prix; |🔖| -Addict à la consommation-")
+            print("finir le jeu en achetant toutes les améliorations, félicitations !\n")
+        if self.glaciere.niveau == 0 and self.filet.niveau == 0 and self.radar.niveau == 0:
+            print("nouveau prix; |🏷️| -Ne perd pas le Nord-")
+            print("finir le jeu en achetant seulement le bibelot, splendide !\n")
+        if self.bourse >= prix_bibelot*10:
+            print("nouveau prix; |📜| -Avide d'argent-")
+            print("finir le jeu avec une somme 10 fois suppérieur au Bibelot, magistral !\n")
+        
         sys.exit()
+
 
 
 
