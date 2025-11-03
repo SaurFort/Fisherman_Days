@@ -1,8 +1,6 @@
 from modules.validator2000 import Validateur
 
 class Aide:
-    def __init__ (self):
-        
     def afficher_aide_joueur (self):
         choix = Validateur.choix("QU'EST CE QUI VOUS TRACASSE ? \n1. Le but du jeu ? \n2. La Pêche ? \n3. Relâcher ? \n4. La Bourse ?\n5. La Glacière ? \n6. Le Radar ? \n7. Le Port ? \n8. Si ma Glacière est pleine ? \n9. Les prix des poissons ? \n10. Le prix du Bibelot ? \n11. RETOUR", ["1","2","3","4","5","6","7","8","9","10","11"])
         if choix == "1" :
@@ -34,4 +32,5 @@ class Aide:
             return
         if choix == "2" : 
             afficher_aide_joueur()
+
 
