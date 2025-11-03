@@ -8,6 +8,7 @@ class Peche:
     def __init__(self, filet: Filet, glaciere: Glaciere):
         self.filet = filet
         self.glaciere = glaciere
+        self.compteur_de_merlin = 0
 
     def __apparition(self) -> Poisson:
         proba = self.filet.taux(self.glaciere.place_disponible())
@@ -35,6 +36,7 @@ class Peche:
             nom_poisson = "Thon |💠💠💠|"
         elif poisson.categorie == "Merlin":
             nom_poisson = "Merlin |✨|"
+            self.compteur_de_merlin += 1
         else:
             nom_poisson = "Fugu |💀|"
 
