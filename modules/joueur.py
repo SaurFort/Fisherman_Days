@@ -86,11 +86,12 @@ class Joueur :
         if self.glaciere.niveau == 0 and self.filet.niveau == 0 and self.radar.niveau == 0:
             print("nouveau prix; |🏷️| -Ne perd pas le Nord-")
             print("finir le jeu en achetant seulement le bibelot, splendide !\n")
-        if self.bourse >= prix_bibelot*10:
+        if self.bourse >= 1000000:
             print("nouveau prix; |📜| -Avide d'argent-")
-            print("finir le jeu avec une somme 10 fois suppérieur au Bibelot, magistral !\n")
+            print("finir le jeu en étant richissime, magistral !\n")
         
         sys.exit()
+
 
 
 
