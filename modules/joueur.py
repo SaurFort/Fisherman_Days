@@ -38,12 +38,12 @@ class Joueur :
         self.rentrer_prematurer()
 
     def affichage2(self):
-        choix = Validateur.choix("-VOUS ÊTES AU PORT-\n1|💰| Marché\n|❔| Prix des poissons \n2|🎣| Retourner en session\n\n", ["1","2"])
+        choix = Validateur.choix("-VOUS ÊTES AU PORT-\n1|💰| Marché\n2|❔| Prix des poissons \n3|🎣| Retourner en session\n\n", ["1","2","3"])
 
         if choix == "1":
             self.marche.boutique(self)
         if choix == "2":
-            print(f"|💠: {self.marche.prix.maquereau} |💠💠: {self.marche.prix.aiglefin} |💠💠💠: {self.marche.prix.thon} |✨: {self.marche.prix.merlin} |💀: {self.marche.prix.fugu} |")
+            print(f"|💠: {self.marche.prix_maquereau} |💠💠: {self.marche.prix_aiglefin} |💠💠💠: {self.marche.prix_thon} |✨: {self.marche.prix_merlin} |💀: {self.marche.prix_fugu} |")
         if choix == "3":
             self.fioul = self.glaciere.total_places() * 2
             self.affichage()
@@ -94,6 +94,7 @@ class Joueur :
             print("finir le jeu avec plus de 100 merlins capturés, extraordinaire !\n")
         
         sys.exit()
+
 
 
 
