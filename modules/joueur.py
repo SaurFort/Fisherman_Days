@@ -4,6 +4,7 @@ from modules.filet import Filet
 from modules.peche import Peche
 from modules.bourse import Bourse
 from modules.radar import Radar
+from modules.validator2000 import Validateur
 import sys
 
 class Joueur :
@@ -17,30 +18,31 @@ class Joueur :
         
     def affichage (self):
         while self.fioul > 0:
-            choix = int(input(f"-VOUS ÊTES EN SESSION DE PÊCHE- \n 1|🎣| Pêcher\n 2|💦| Relâcher\n 3|💲| Bourse actuelle\n 4|🪣| Contenu de la glaciere\n 5|🛰️| Radar\n 6|⛔| RENTRER AU PORT\n\n -> "))
-            if choix == 1:
+            choix = Validateur.choix("-VOUS ÊTES EN SESSION DE PÊCHE- \n 1|🎣| Pêcher\n 2|💦| Relâcher\n 3|💲| Bourse "
+                                     "actuelle\n 4|🪣| Contenu de la glaciere\n 5|🛰️| Radar\n 6|⛔| RENTRER AU PORT\n\n -> ", ["1","2","3","4","5","6"])
+            if choix == "1":
                 self.pecher_en_session()
                 print(f"Fioul restant: {self.fioul}L\n\n")
-            if choix == 2:
+            if choix == "2":
                 self.relacher()
-            if choix == 3:
+            if choix == "3":
                 self.voir_bourse()
-            if choix == 4:
+            if choix == "4":
                 self.voir_glaciere()
-            if choix == 5:
+            if choix == "5":
                 self.voir_radar()
-            if choix == 6:
+            if choix == "6":
                 self.rentrer_prematurer()
 
         print("Vous n'avez plus de fioul, vous êtes obligé de rentrer.")
         self.rentrer_prematurer()
 
     def affichage2(self):
-        choix = int(input("-VOUS ÊTES AU PORT-\n1|💰| Marché\n2|🎣| Retourner en session\n\n"))
+        choix = Validateur.choix("-VOUS ÊTES AU PORT-\n1|💰| Marché\n2|🎣| Retourner en session\n\n", ["1","2"])
 
-        if choix == 1:
+        if choix == "1":
             self.marche.boutique(self)
-        if choix == 2:
+        if choix == "2":
             self.fioul = self.glaciere.total_places() * 2
             self.affichage()
 

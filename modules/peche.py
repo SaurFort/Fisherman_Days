@@ -2,6 +2,7 @@ from modules.glaciere import Glaciere
 from modules.poisson import Poisson
 from modules.filet import Filet
 from random import randint
+from modules.validator2000 import Validateur
 
 class Peche:
     def __init__(self, filet: Filet, glaciere: Glaciere):
@@ -44,13 +45,13 @@ class Peche:
             self.glaciere.stocker_poisson(poisson)
             print("|✅|Vous avez stocké ce poisson.")
         else:
-            choix = input(f"Vous avez attrapé un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n -> ")
+            choix = Validateur.choix(f"Vous avez attrapé un {nom_poisson}, voulez-vous le garder ?\n1. Oui\n2. Non\n\n -> ", ["1","2"])
             if choix == "1":
                 if self.glaciere.place_disponible() == 0:
                     self.glaciere.relacher_poisson()
                 self.glaciere.stocker_poisson(poisson)
                 print("|✅|Vous avez stocké ce poisson.")
-            else:
+            elif choix == "2":
                 print("|❌|Vous avez relâché ce poisson.")
 
         print("Votre stock:\n", self.glaciere)

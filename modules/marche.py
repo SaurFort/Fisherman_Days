@@ -1,4 +1,5 @@
 from modules.glaciere import Glaciere
+from modules.validator2000 import Validateur
 
 class Marche:
     def __init__(self):
@@ -31,31 +32,32 @@ class Marche:
         if joueur.radar.niveau == 1:
             prix_radar = 'MAX'
 
-        choix=int(input(f"-VOUS ÊTES DANS LE MARCHÉ-\n1. Glacière+ [{prix_glaciere}💲]\n2. Filet+ [{prix_filet}💲]\n3. Radar [{prix_radar}💲]\n4. Joli bibelot [{self.prix_bibelot}💲] -1 seul exemplaire-\n5.|⛔|Retour au port \n\n"))
+        choix = Validateur.choix(f"-VOUS ÊTES DANS LE MARCHÉ-\n1. Glacière+ [{prix_glaciere}💲]\n2. Filet+ [{
+        prix_filet}💲]\n3. Radar [{prix_radar}💲] !\n4. Joli bibelot [{self.prix_bibelot}💲] -1 seul exemplaire-\n5.|⛔|Retour au port \n\n", ["1","2","3","4","5","fugu&ships"])
         # Condition de debug
-        if choix == 666:
+        if choix == "fugu&ships":
             joueur.bourse.ajouter(1000000)
             joueur.voir_bourse()
         
-        if choix == 1:
+        if choix == "1":
             if joueur.glaciere.niveau < 4 and joueur.bourse.recuperer() >= prix_glaciere:
                 joueur.bourse.retirer(prix_glaciere)
                 joueur.glaciere.niveau += 1
                 print("✅ Votre Glacière a été amélioré avec succès ! ✅")
                 
-        if choix == 2:
+        if choix == "2":
             if joueur.filet.niveau < 3 and joueur.bourse.recuperer() >= prix_filet:
                 joueur.bourse.retirer(prix_filet)
                 joueur.filet.niveau += 1
                 print("✅ Votre Filet a été amélioré avec succès ! ✅")
             
-        if choix == 3:
+        if choix == "3":
             if joueur.radar.niveau < 1 and joueur.bourse.recuperer() >= prix_radar:
                 joueur.bourse.retirer(prix_radar)
                 joueur.radar.niveau += 1
                 print("✅ Votre Radar a été acquis avec succès ! ✅")
 
-        if choix == 4:
+        if choix == "4":
             if joueur.bourse.recuperer() >= self.prix_bibelot:
                 joueur.bourse.retirer(self.prix_bibelot)
                 joueur.fin(self.prix_bibelot)
