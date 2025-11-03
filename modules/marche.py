@@ -66,7 +66,6 @@ class Marche:
             joueur.affichage2()
 
     def vente(self, glaciere: Glaciere) -> int:
-        self.__inflation()
         argent = 0
         compte = glaciere.recuperer_stock()
 
@@ -88,4 +87,5 @@ class Marche:
                 self.prix_maquereau = round(self.prix_maquereau * (0.99 ** compte[poisson]), 2)
 
         glaciere.vider()
+        self.__inflation()
         return argent
