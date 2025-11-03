@@ -5,6 +5,7 @@ from modules.peche import Peche
 from modules.bourse import Bourse
 from modules.radar import Radar
 from modules.validator2000 import Validateur
+from modules.aide import Aide
 import sys
 
 class Joueur :
@@ -16,6 +17,7 @@ class Joueur :
         self.radar = Radar()
         self.fioul = 10
         self.compteur_de_merlin = 0
+        self.aide = Aide()
         
     def affichage (self):
         while self.fioul > 0:
@@ -35,7 +37,7 @@ class Joueur :
             if choix == "5":
                 self.voir_radar()
             if choix == "6": 
-                self.afficher_aide_joueur()
+                self.aide
             if choix == "7":
                 self.rentrer_prematurer()
 
@@ -104,6 +106,7 @@ class Joueur :
         print(f"fins débloquées: {compteur_fins}/4")
         
         sys.exit()
+
 
 
 
