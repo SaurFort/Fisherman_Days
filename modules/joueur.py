@@ -110,9 +110,9 @@ class Joueur :
             print("finir le jeu en achetant toutes les améliorations.\n")
             print("Niveau de difficulté: 🟨")
             compteur_fins += 1
-        if self.glaciere.niveau == 0 and self.filet.niveau == 0 and self.radar.niveau == 0:
-            print("nouveau prix; |🏷️| -Ne perd pas le Nord-")
-            print("finir le jeu en achetant seulement le bibelot.\n")
+        if self.prix_bibelot <= 30000:
+            print("nouveau prix; |🏷️| -Rapide comme l'éclair-")
+            print("finir le jeu en achetant le bibelot à moins de 30000💲.\n")
             print("Niveau de difficulté: 🟧")
             compteur_fins += 1
         if self.bourse.recuperer() >= 1000000 :
@@ -122,7 +122,7 @@ class Joueur :
             compteur_fins += 1
         if self.peche.compteur_de_merlin >= 100:
             print("nouveau prix; |🎖️| -Le paria devenu Légende-")
-            print("finir le jeu avec plus de 100 merlins capturés.\n")
+            print("finir le jeu en ayans capturés plus de 100 merlins.\n")
             print("Niveau de difficulté: 🟪")
             compteur_fins += 1
         
@@ -130,6 +130,7 @@ class Joueur :
         print(f"fins débloquées: {compteur_fins}/5")
         
         sys.exit()
+
 
 
 
