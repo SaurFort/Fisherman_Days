@@ -103,9 +103,15 @@ class Joueur :
             print("nouveau prix; |🎖️| -Le paria devenu Légende-")
             print("finir le jeu avec plus de 100 merlins capturés, extraordinaire !\n")
             compteur_fins += 1
-        print(f"fins débloquées: {compteur_fins}/4")
+        if :
+            print("nouveau prix; |🎋| -Sur le bout des doigts-")
+            print("finir le jeu en ayant lu toutes les aides, waw !\n")
+            compteur_fins += 1
+        print("")
+        print(f"fins débloquées: {compteur_fins}/5")
         
         sys.exit()
+
 
 
 
