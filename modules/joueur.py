@@ -133,7 +133,7 @@ class Joueur :
         else:
             print("|❌| -Avide d'argent-")
             
-        if self.peche.compteur_de_merlin >= 100:
+        if compteur_de_merlin >= 100:
             print("nouveau prix; |🎖️| -Le pêcheur devenu Légende-")
             print("finir le jeu en ayant capturés plus de 100 merlins.\n")
             print("Niveau de difficulté: 🟥")
@@ -156,6 +156,7 @@ class Joueur :
             print("😇-🟦🟩🟨🟧🟥🟪-👿")
         
         sys.exit()
+
 
 
 
