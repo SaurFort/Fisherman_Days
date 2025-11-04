@@ -30,11 +30,12 @@ class Aide:
             print("🔍 Le fioul représenté en Litres (L), vous annonce le nombre de fois que vous pouvez pêcher avant de rentrer au port. Une fois le réservoir vide, vous serez directement redirigé vers le port.")
         elif choix == "13" :  
             return
-        choix = Validateur.choix("VOULEZ VOUS RETOURNER AU JEU ? \n1. Oui \n2. Non"\n\n _, ["1", "2"])
+        choix = Validateur.choix("VOULEZ VOUS RETOURNER AU JEU ? \n1. Oui \n2. Non\n\n _", ["1", "2"])
         if choix == "1" : 
             return
         if choix == "2" : 
             self.afficher_aide_joueur()
+
 
 
 
