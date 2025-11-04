@@ -104,7 +104,7 @@ class Joueur :
         if len(self.aide.vu) == 12:
             print("nouveau prix; |🎋| -Sur le bout des doigts-")
             print("finir le jeu en ayant lu toutes les aides.\n")
-            print("Niveau de difficulté: 🟩")
+            print("Niveau de difficulté: 🟦")
             compteur_fins += 1
         else:
             print("|❌| -Sur le bout des doigts-")
@@ -112,15 +112,15 @@ class Joueur :
         if self.glaciere.niveau == 4 and self.filet.niveau == 3 and self.radar.niveau == 1:
             print("nouveau prix; |🔖| -Addict à la consommation-")
             print("finir le jeu en achetant toutes les améliorations.\n")
-            print("Niveau de difficulté: 🟨")
+            print("Niveau de difficulté: 🟩")
             compteur_fins += 1
         else:
             print("|❌| -Addict à la consommation-")
             
-        if self.prix_bibelot <= 30000:
+        if self.marche.prix_bibelot <= 30000:
             print("nouveau prix; |🏷️| -Rapide comme l'éclair-")
             print("finir le jeu en achetant le bibelot à moins de 30000💲.\n")
-            print("Niveau de difficulté: 🟧")
+            print("Niveau de difficulté: 🟨")
             compteur_fins += 1
         else:
             print("|❌| -Rapide comme l'éclair-")
@@ -128,15 +128,15 @@ class Joueur :
         if self.bourse.recuperer() >= 1000000 :
             print("nouveau prix; |📜| -Avide d'argent-")
             print("finir le jeu en étant richissime.\n")
-            print("Niveau de difficulté: 🟥")
+            print("Niveau de difficulté: 🟧")
             compteur_fins += 1
         else:
             print("|❌| -Avide d'argent-")
             
         if self.peche.compteur_de_merlin >= 100:
             print("nouveau prix; |🎖️| -Le pêcheur devenu Légende-")
-            print("finir le jeu en ayans capturés plus de 100 merlins.\n")
-            print("Niveau de difficulté: 🟪")
+            print("finir le jeu en ayant capturés plus de 100 merlins.\n")
+            print("Niveau de difficulté: 🟥")
             compteur_fins += 1
         else:
             print("|❌| -Le pêcheur devenu Légende-")
@@ -144,7 +144,7 @@ class Joueur :
         if self.compteur_de_mers >= 2:
             print("nouveau prix; |🎫| -La ruée vers l'or-")
             print("finir le jeu en ayant découvert 2 mers dorées.\n")
-            print("Niveau de difficulté: 🟦")
+            print("Niveau de difficulté: 🟪")
             compteur_fins += 1
         else:
             print("|❌| -La ruée vers l'or-")
@@ -152,40 +152,10 @@ class Joueur :
         
         print("")
         print(f"fins débloquées: {compteur_fins}/6")
+        if compteur_fins >= 1:
+            print("😇-🟦🟩🟨🟧🟥🟪-👿")
         
         sys.exit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
