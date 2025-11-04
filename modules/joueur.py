@@ -6,6 +6,7 @@ from modules.bourse import Bourse
 from modules.radar import Radar
 from modules.validator2000 import Validateur
 from modules.aide import Aide
+from random import randint
 import sys
 
 class Joueur :
@@ -17,9 +18,13 @@ class Joueur :
         self.radar = Radar()
         self.fioul = 10
         self.compteur_de_merlin = 0
-        
+        self.session_or = False
         
     def affichage (self):
+        if self.session_or:
+            print("✨| SESSION DE PÊCHE OR |✨\nVous avez une chance accrue de pêcher des rares ! Bonne chance "
+                  "!\n")
+
         while self.fioul > 0:
             choix = Validateur.choix("-VOUS ÊTES EN SESSION DE PÊCHE- \n 1|🎣| Pêcher\n 2|💦| Relâcher\n 3|💲| Bourse "
                                      "actuelle\n 4|🪣| Contenu de la glaciere\n 5|🛰️| Radar\n 6|❔| Aide \n 7|⛔| RENTRER AU PORT\n\n _", ["1","2","3","4","5","6","7"])
@@ -37,7 +42,7 @@ class Joueur :
             if choix == "5":
                 self.voir_radar()
             if choix == "6": 
-                Aide().afficher_aide_joueur()
+                Aide().afficher_aide_joueur(self.marche)
             if choix == "7":
                 self.rentrer_prematurer()
 
@@ -53,10 +58,17 @@ class Joueur :
         if choix == "2":
             self.fioul = self.glaciere.total_places() * 2
             self.affichage()
+
+            i = randint(1, 20)
+            if i == 1:
+                self.session_or = True
+            else:
+                self.session_or = False
+
         
 
     def pecher_en_session(self):
-        Peche(self.filet,self.glaciere).pecher()
+        Peche(self.filet.taux(self.glaciere.place_disponible(), self.session_or),self.glaciere).pecher()
         self.fioul -= 1
 
     def relacher(self):
@@ -103,10 +115,10 @@ class Joueur :
             print("nouveau prix; |🎖️| -Le paria devenu Légende-")
             print("finir le jeu avec plus de 100 merlins capturés, extraordinaire !\n")
             compteur_fins += 1
-        if :
-            print("nouveau prix; |🎋| -Sur le bout des doigts-")
-            print("finir le jeu en ayant lu toutes les aides, waw !\n")
-            compteur_fins += 1
+        #if :
+        #    print("nouveau prix; |🎋| -Sur le bout des doigts-")
+        #    print("finir le jeu en ayant lu toutes les aides, waw !\n")
+        #    compteur_fins += 1
         print("")
         print(f"fins débloquées: {compteur_fins}/5")
         

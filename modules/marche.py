@@ -87,4 +87,7 @@ class Marche:
 
         glaciere.vider()
         self.__inflation()
+        print(
+            f"🔍 Voila les nouveaux prix du marché |💠: {self.prix_maquereau} |💠💠: {self.prix_aiglefin} |\n|💠💠💠: "
+            f"{self.prix_thon} |✨: {self.prix_merlin} |💀: {self.prix_fugu} |.\n")
         return argent

@@ -2,7 +2,12 @@ class Filet:
     def __init__ (self):
         self.niveau = 1
         
-    def taux (self, places_dispo_glaciere):
+    def taux (self, places_dispo_glaciere, session_or: bool = False):
+        if session_or and places_dispo_glaciere == 0:
+            return [0,0,0,0,100]
+        elif session_or:
+            return [2,12,55,30,1]
+
         if places_dispo_glaciere == 0:
             return [35,10,10,10,35]
         elif self.niveau == 1:
@@ -11,6 +16,6 @@ class Filet:
             return [47,28,15,4,6]
         elif self.niveau == 3:
             return [35,30,20,10,5]
-        
+
         
 

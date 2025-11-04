@@ -5,19 +5,18 @@ from random import randint
 from modules.validator2000 import Validateur
 
 class Peche:
-    def __init__(self, filet: Filet, glaciere: Glaciere):
-        self.filet = filet
+    def __init__(self, taux: list[int], glaciere: Glaciere):
+        self.taux = taux
         self.glaciere = glaciere
 
     def __apparition(self) -> Poisson:
-        proba = self.filet.taux(self.glaciere.place_disponible())
         poissons = ["Maquereau", "Aiglefin", "Thon", "Merlin", "Fugu"]
 
         x = randint(1, 100)
 
         proba_cumule = 0
         # Enumerate -> retourne index + valeur (foreach PHP)
-        for i, p in enumerate(proba):
+        for i, p in enumerate(self.taux):
             proba_cumule += p
             if x <= proba_cumule:
                 return Poisson(poissons[i])
