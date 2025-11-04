@@ -23,8 +23,7 @@ class Joueur :
         
     def affichage (self):
         if self.session_or:
-            print("✨| SESSION DE PÊCHE OR |✨\nVous avez une chance accrue de pêcher des rares ! Bonne chance "
-                  "!\n")
+            print("✨| SESSION EN MER DOREE |✨\nVous avez une occasion en or de pêcher des poissons rares ! Bonne chance !\n")
 
         while self.fioul > 0:
             choix = Validateur.choix("-VOUS ÊTES EN SESSION DE PÊCHE- \n 1|🎣| Pêcher\n 2|💦| Relâcher\n 3|💲| Bourse "
@@ -130,6 +129,7 @@ class Joueur :
         print(f"fins débloquées: {compteur_fins}/5")
         
         sys.exit()
+
 
 
 
