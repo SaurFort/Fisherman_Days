@@ -6,7 +6,7 @@ class Aide:
         self.vu = {}
         
     def afficher_aide_joueur(self, marche: Marche):
-        choix = Validateur.choix("QU'EST CE QUI VOUS TRACASSE ? \n 1|❔|Le but du jeu ? \n 2|❓|La Pêche ? \n 3|❓|Relâcher ? \n 4|❓|La Bourse ?\n 5|❓|La Glacière ? \n 6|❓|Le Radar ? \n 7|❓|Le Port ? \n 8|❔|Si ma Glacière est pleine ? \n 9|❔|Les prix des poissons ? \n10|❔|Le prix du Bibelot ? \n11|❓| Les améliorations ?\n12|❓| Le fioul ? \n13|⛔|RETOUR\n\n _", ["1","2","3","4","5","6","7","8","9","10","11","12","13"])
+        choix = Validateur.choix("QU'EST CE QUI VOUS TRACASSE ? \n 1|❔|Le but du jeu ? \n 2|❓|La Pêche ? \n 3|❓|Relâcher ? \n 4|❓|La Bourse ?\n 5|❓|La Glacière ? \n 6|❓|Le Radar ? \n 7|❓|Le Port ? \n 8|❔|Si ma Glacière est pleine ? \n 9|❔|Les prix des poissons ? \n10|❔|Le prix du Bibelot ? \n11|❓|Les améliorations ?\n12|❓|Le fioul ? \n\n13|⛔|RETOUR\n\n _", ["1","2","3","4","5","6","7","8","9","10","11","12","13"])
         if choix == "1" :
             print("🔍 Vous devez pêcher et vendre des poissons, pour acheter un joli bibelot.\n")
             self.vu["1"] = True
@@ -64,6 +64,7 @@ class Aide:
             return
         if choix == "2" : 
             self.afficher_aide_joueur(marche)
+
 
 
 
