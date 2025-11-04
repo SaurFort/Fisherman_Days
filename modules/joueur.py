@@ -26,7 +26,7 @@ class Joueur :
             if choix == "1":
                 self.pecher_en_session()
                 print(f"Fioul restant: {self.fioul}L\n\n")
-                if poisson.categorie == "Merlin":
+                if self.glaciere.sommet().categorie == "Merlin":
                     self.compteur_de_merlin += 1
             if choix == "2":
                 self.relacher()
@@ -106,6 +106,7 @@ class Joueur :
         print(f"fins débloquées: {compteur_fins}/4")
         
         sys.exit()
+
 
 
 
