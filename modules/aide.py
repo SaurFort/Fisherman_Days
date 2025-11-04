@@ -13,7 +13,7 @@ class Aide:
             
         elif choix == "2" :
             print("🔍 En pêchant, vous collectez un poisson, plus ou moins rare que vous pourrez revendre en rentrant au port.")
-            print("Une rumeur raconte que les poissons les plus rares nageraient en abondance dans une "mer dorée"...
+            print("Une rumeur raconte que les poissons les plus rares nageraient en abondance dans une 'mer dorée'...")
             self.vu["2"] = True
             
         elif choix == "3" :
@@ -64,6 +64,7 @@ class Aide:
             return
         if choix == "2" : 
             self.afficher_aide_joueur(marche)
+
 
 
 
