@@ -101,7 +101,7 @@ class Joueur :
         print("Merci d'avoir joué")
         print("MoonCore Studio©\n\n")
 
-       if len(self.aide.vu) == 12:
+        if len(self.aide.vu) == 12:
             print("nouveau prix; |🎋| -Sur le bout des doigts-")
             print("finir le jeu en ayant lu toutes les aides.\n")
             print("Niveau de difficulté: 🟩")
@@ -154,6 +154,7 @@ class Joueur :
         print(f"fins débloquées: {compteur_fins}/6")
         
         sys.exit()
+
 
 
 
