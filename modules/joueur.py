@@ -20,9 +20,11 @@ class Joueur :
         self.compteur_de_merlin = 0
         self.session_or = False
         self.aide = Aide()
+        self.compteur_de_mers = 0
         
     def affichage (self):
         if self.session_or:
+            self.compteur_de_mers += 1
             print("✨| SESSION EN MER DOREE |✨\nVous avez une occasion en or de pêcher des poissons rares ! Bonne chance !\n")
 
         while self.fioul > 0:
@@ -139,7 +141,7 @@ class Joueur :
         else:
             print("|❌| -Le pêcheur devenu Légende-")
 
-        if self.peche.compteur_de_mers >= 2:
+        if self.compteur_de_mers >= 2:
             print("nouveau prix; |🎫| -La ruée vers l'or-")
             print("finir le jeu en ayant découvert 2 mers dorées.\n")
             print("Niveau de difficulté: 🟦")
@@ -152,6 +154,7 @@ class Joueur :
         print(f"fins débloquées: {compteur_fins}/6")
         
         sys.exit()
+
 
 
 
