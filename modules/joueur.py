@@ -151,11 +151,19 @@ class Joueur :
         
         
         print("")
-        print(f"fins débloquées: {compteur_fins}/6")
-        if compteur_fins >= 1:
+        print(f"fins débloquées: {compteur_fins}/6\n")
+        
+        if compteur_fins == 6:
+            print("toutes nos félicitations, vous avez complétez le jeu à 100% ! ")
+            print("nouveau prix; |👑| -Roi des mers-")
+            print("finir le jeu en ayant débloqué tous les succès.\n")
+        else:
+            compteur_fins >= 1 and compteur_fins != 6:
             print("😇-🟦🟩🟨🟧🟥🟪-👿")
+            
         
         sys.exit()
+
 
 
 
