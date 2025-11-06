@@ -79,6 +79,7 @@ class Marche:
 
         Args:
             glaciere (Glaciere): Instance de la glacière du joueur.
+            ursaf (bool): Si l'URSAF est active ou non.
 
         Returns:
             int: Montant total gagné par le joueur lors de la vente.
@@ -107,12 +108,12 @@ class Marche:
                 self.prix_maquereau = round(self.prix_maquereau * (0.99 ** compte[poisson]), 2)
 
         if ursaf: # Si le joueur est endetté, la banque prélève 40% de ses gains.
-            print(f"💀 Vous êtes endetté, la banque vous prélève 40% de vos gains soit {argent * 0.6}.\n")
+            print(f"|⚖️| Vous êtes endetté, la banque vous prélève 40% de vos gains soit {argent * 0.6}💲.\n")
             argent = argent * 0.6
 
         glaciere.vider() # On vide la glacière.
         self.__inflation() # On applique l'inflation des prix pour la prochaine vente.
         print( # Affiche au joueur les prix des poissons pour la prochaine vente.
-            f"🔍 Voila les nouveaux prix du marché |💠: {self.prix_maquereau} |💠💠: {self.prix_aiglefin} |\n|💠💠💠: "
-            f"{self.prix_thon} |✨: {self.prix_merlin} |💀: {self.prix_fugu} |, à bientôt .\n")
+            f"🔍 Voila les nouveaux prix du marché |💠: {self.prix_maquereau}💲 |💠💠: {self.prix_aiglefin}💲 |\n|💠💠💠: "
+            f"{self.prix_thon}💲 |✨: {self.prix_merlin}💲 |💀: {self.prix_fugu}💲 |, à bientôt .\n")
         return argent
