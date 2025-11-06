@@ -7,9 +7,10 @@ class Aide:
         
     def afficher_aide_joueur(self, marche: Marche):
         choix = Validateur.choix("QU'EST CE QUI VOUS TRACASSE ? \n 1|❔|Le but du jeu ? \n 2|❓|La Pêche ? \n 3|❓|Relâcher ? \n 4|❓|La Bourse ?\n 5|❓|La Glacière ? \n 6|❓|Le Radar ? \n 7|❓|Le Port ? \n 8|❔|Si ma Glacière est pleine ? \n 9|❔|Les prix des poissons ? \n10|❔|Le prix du Bibelot ? \n11|❓|Les améliorations ?\n12|❓|Le fioul ? \n\n13|⛔|RETOUR\n\n _", ["1","2","3","4","5","6","7","8","9","10","11","12","13"])
+        # affiche au joueur toutes les possibilités (pour un total de 13, 12 choix + la sortie)
         if choix == "1" :
             print("🔍 Vous devez pêcher et vendre des poissons, pour acheter un joli bibelot.\n")
-            self.vu["1"] = True
+            self.vu["1"] = True # a chaque découverte d'une aide, le dictionnaire "vu" ajoute un "true" sur le numero de l'aide correspondante
             
         elif choix == "2" :
             print("🔍 En pêchant, vous collectez un poisson, plus ou moins rare que vous pourrez revendre en rentrant au port.")
@@ -41,7 +42,7 @@ class Aide:
             print("🔍 Si vous pêcher avec une Glacière pleine et que vous pêchez et gardez un poisson, c'est le dernier poisson enregistré qui laissera sa place au nouveau.\n ")
             self.vu["8"] = True
             
-        elif choix == "9" :
+        elif choix == "9" : # affiche les prix du marché en temps réel pour la prochaine vente
             print(f"🔍 Voila le prix actuel des poissons; |💠: {marche.prix_maquereau} |💠💠: {marche.prix_aiglefin} |\n|💠💠💠: {marche.prix_thon} |✨: {marche.prix_merlin} |💀: {marche.prix_fugu} |.\n")
             self.vu["9"] = True
             
@@ -57,13 +58,14 @@ class Aide:
             print("🔍 Le fioul représenté en Litres (L), vous annonce le nombre de fois que vous pouvez pêcher avant de rentrer au port. Une fois le réservoir vide, vous serez directement redirigé vers le port.\n")
             self.vu["12"] = True
             
-        elif choix == "13" :  
+        elif choix == "13" : # si le choix est "13", je joueur retourne de suite en session de pêche 
             return
         choix = Validateur.choix("VOULEZ VOUS RETOURNER AU JEU ? \n1. Oui \n2. Non\n\n _", ["1", "2"])
-        if choix == "1" : 
+        if choix == "1" : # si le joueur a lu une aide, il passera par ce menu avant de retourner soit en session ou bien dans le menu des aides
             return
         if choix == "2" : 
             self.afficher_aide_joueur(marche)
+
 
 
 
