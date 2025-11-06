@@ -73,7 +73,7 @@ class Marche:
         else:
             joueur.affichage2()
 
-    def vente(self, glaciere: Glaciere) -> int:
+    def vente(self, glaciere: Glaciere, ursaf: bool = False) -> int:
         """
         Gère la vente des poissons de la glacière du joueur et l'inflation des prix pour la prochaine vente.
 
@@ -105,6 +105,10 @@ class Marche:
             else:
                 argent += compte[poisson] * self.prix_maquereau
                 self.prix_maquereau = round(self.prix_maquereau * (0.99 ** compte[poisson]), 2)
+
+        if ursaf: # Si le joueur est endetté, la banque prélève 40% de ses gains.
+            print(f"💀 Vous êtes endetté, la banque vous prélève 40% de vos gains soit {argent * 0.6}.\n")
+            argent = argent * 0.6
 
         glaciere.vider() # On vide la glacière.
         self.__inflation() # On applique l'inflation des prix pour la prochaine vente.

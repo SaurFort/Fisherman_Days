@@ -22,7 +22,9 @@ class Joueur :
         self.session_or = False
         self.aide = Aide()
         self.compteur_de_mers = 0 #compte le nombre de mers dorées trouvées par le joueur
-        
+        self.ursaf_active = False
+        self.ursaf_compteur = 0
+
     # -> un selecteur qui affiche tout d'abord les propositions possibles au joueur puis ce dernier 
     # écrit le numéro correspondnt a l'action qu'il veut effectuer dans la console
     # cette partie permet au joueur de faire la plus grosse partie du jeu en pêchant, regardant la glaciere, la bourse... 
@@ -53,10 +55,10 @@ class Joueur :
             if choix == "6": 
                 self.aide.afficher_aide_joueur(self.marche)
             if choix == "7":
-                self.rentrer_prematurer()
+                self.rentrer()
 
         print("Vous n'avez plus de fioul, vous êtes obligé de rentrer.")
-        self.rentrer_prematurer()
+        self.rentrer()
 
     # -> un selecteur qui affiche tout d'abord les propositions possibles au joueur puis ce dernier 
     # écrit le numéro correspondnt a l'action qu'il veut effectuer dans la console
@@ -82,6 +84,30 @@ class Joueur :
     def pecher_en_session(self):
         Peche(self.filet.taux(self.glaciere.place_disponible(), self.session_or),self.glaciere).pecher()
         self.fioul -= 1
+        i = randint(1, 200)
+
+        if i == 1: # 0,5% de chance que des pirates attaquent le joueur a chaque fois qu'il pêche
+            self.pirate()
+
+    def pirate(self):
+        """Gère l'attaque de pirates qui volent la moitié des poissons et une partie de l'argent du joueur."""
+        perte = 0
+        if self.bourse.recuperer() > 300:
+            perte = (self.bourse.recuperer() - 300) * 0.8
+        perte += 300
+
+        print(f"🏴‍☠️| Des pirates sont apparus et vous ont volé la moitié de vos poissons et {perte} ! |🏴‍☠️\n")
+        for i in range(len(self.glaciere) // 2):
+            self.glaciere.relacher_poisson()
+
+        if self.bourse.recuperer() < 0:
+            self.ursaf()
+
+    def ursaf(self):
+        """Gère la situation où le joueur est endetté et doit rembourser sa dette sous peine de fin de partie."""
+        print("Vous êtes endetté et l'URSAF est à vos trousses, vous avez 2 sessions pour rembourser votre dette, "
+              "de plus la banque va vous prélevez 40% de vos gains à chaque vente.")
+        self.ursaf_active = True
 
     def relacher(self):
         self.glaciere.relacher_poisson()
@@ -93,8 +119,16 @@ class Joueur :
     def voir_glaciere(self):
         print(self.glaciere)
         
-    def rentrer_prematurer(self): #force le retour du joueur avant la fin de la réserve de fioul
-        self.bourse.ajouter(self.marche.vente(self.glaciere)) # vend et ajoute l'argent a la bourse
+    def rentrer(self): #gère le retour du joueur
+        self.bourse.ajouter(self.marche.vente(self.glaciere, self.ursaf_active)) # vend et ajoute l'argent a la bourse
+        if self.bourse.recuperer() >= 0:
+            self.ursaf_active = False # si le joueur a remboursé sa dette, l'ursaf est désactivée
+        elif self.ursaf_active:
+            self.ursaf_compteur += 1
+            if self.ursaf_compteur >= 2:
+                print("L'URSAF est venue vous arrêter pour ne pas avoir remboursé votre dette et découvre aussi que "
+                      "vous avez fait du détournement de fond.\nVous avez perdu.")
+                sys.exit()
         self.voir_bourse() # affiche la bourse au joueur
         self.affichage2() # bascule directement sur le menu du port
         
