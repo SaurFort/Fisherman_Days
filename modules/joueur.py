@@ -19,11 +19,13 @@ class Joueur :
         self.fioul = 10
         self.compteur_de_merlin = 0
         self.session_or = False
+        self.aide = Aide()
+        self.compteur_de_mers = 0
         
     def affichage (self):
         if self.session_or:
-            print("✨| SESSION DE PÊCHE OR |✨\nVous avez une chance accrue de pêcher des rares ! Bonne chance "
-                  "!\n")
+            self.compteur_de_mers += 1
+            print("✨| SESSION EN MER DOREE |✨\nVous avez une occasion en or de pêcher des poissons rares ! Bonne chance !\n")
 
         while self.fioul > 0:
             choix = Validateur.choix("-VOUS ÊTES EN SESSION DE PÊCHE- \n 1|🎣| Pêcher\n 2|💦| Relâcher\n 3|💲| Bourse "
@@ -42,7 +44,7 @@ class Joueur :
             if choix == "5":
                 self.voir_radar()
             if choix == "6": 
-                Aide().afficher_aide_joueur(self.marche)
+                self.aide.afficher_aide_joueur(self.marche)
             if choix == "7":
                 self.rentrer_prematurer()
 
@@ -98,70 +100,69 @@ class Joueur :
         print("Fin.\n")
         print("Merci d'avoir joué")
         print("MoonCore Studio©\n\n")
-        
+
+        if len(self.aide.vu) == 12:
+            print("nouveau prix; |🎋| -Sur le bout des doigts-")
+            print("finir le jeu en ayant lu toutes les aides.\n")
+            print("Niveau de difficulté: 🟦")
+            compteur_fins += 1
+        else:
+            print("|❌| -Sur le bout des doigts-")
+
         if self.glaciere.niveau == 4 and self.filet.niveau == 3 and self.radar.niveau == 1:
             print("nouveau prix; |🔖| -Addict à la consommation-")
-            print("finir le jeu en achetant toutes les améliorations, félicitations !\n")
+            print("finir le jeu en achetant toutes les améliorations.\n")
+            print("Niveau de difficulté: 🟩")
             compteur_fins += 1
-        if self.glaciere.niveau == 0 and self.filet.niveau == 0 and self.radar.niveau == 0:
-            print("nouveau prix; |🏷️| -Ne perd pas le Nord-")
-            print("finir le jeu en achetant seulement le bibelot, splendide !\n")
+        else:
+            print("|❌| -Addict à la consommation-")
+            
+        if self.marche.prix_bibelot <= 30000:
+            print("nouveau prix; |🏷️| -Rapide comme l'éclair-")
+            print("finir le jeu en achetant le bibelot à moins de 30000💲.\n")
+            print("Niveau de difficulté: 🟨")
             compteur_fins += 1
+        else:
+            print("|❌| -Rapide comme l'éclair-")
+            
         if self.bourse.recuperer() >= 1000000 :
             print("nouveau prix; |📜| -Avide d'argent-")
-            print("finir le jeu en étant richissime, magistral !\n")
+            print("finir le jeu en étant richissime.\n")
+            print("Niveau de difficulté: 🟧")
             compteur_fins += 1
-        if self.peche.compteur_de_merlin >= 100:
-            print("nouveau prix; |🎖️| -Le paria devenu Légende-")
-            print("finir le jeu avec plus de 100 merlins capturés, extraordinaire !\n")
+        else:
+            print("|❌| -Avide d'argent-")
+            
+        if compteur_de_merlin >= 100:
+            print("nouveau prix; |🎖️| -Le pêcheur devenu Légende-")
+            print("finir le jeu en ayant capturés plus de 100 merlins.\n")
+            print("Niveau de difficulté: 🟥")
             compteur_fins += 1
-        #if :
-        #    print("nouveau prix; |🎋| -Sur le bout des doigts-")
-        #    print("finir le jeu en ayant lu toutes les aides, waw !\n")
-        #    compteur_fins += 1
+        else:
+            print("|❌| -Le pêcheur devenu Légende-")
+
+        if self.compteur_de_mers >= 2:
+            print("nouveau prix; |🎫| -La ruée vers l'or-")
+            print("finir le jeu en ayant découvert 2 mers dorées.\n")
+            print("Niveau de difficulté: 🟪")
+            compteur_fins += 1
+        else:
+            print("|❌| -La ruée vers l'or-")
+        
+        
         print("")
-        print(f"fins débloquées: {compteur_fins}/5")
+        print(f"fins débloquées: {compteur_fins}/6\n")
+        
+        if compteur_fins == 6:
+            print("toutes nos félicitations, vous avez complétez le jeu à 100% ! ")
+            print("nouveau prix; |👑| -Roi des mers-")
+            print("finir le jeu en ayant débloqué tous les succès.\n")
+        else:
+            compteur_fins >= 1 and compteur_fins != 6:
+            print("😇-🟦🟩🟨🟧🟥🟪-👿")
+            
         
         sys.exit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
