@@ -96,7 +96,7 @@ class Joueur :
             perte = (self.bourse.recuperer() - 300) * 0.8
         perte += 300
 
-        print(f"🏴‍☠️| Des pirates sont apparus et vous ont volé la moitié de vos poissons et {perte} ! |🏴‍☠️\n")
+        print(f"🦜| Des pirates sont apparus et vous ont volé la moitié de vos poissons et {perte}💲 ! |🦜\n")
         for i in range(len(self.glaciere) // 2):
             self.glaciere.relacher_poisson()
 
@@ -105,7 +105,7 @@ class Joueur :
 
     def ursaf(self):
         """Gère la situation où le joueur est endetté et doit rembourser sa dette sous peine de fin de partie."""
-        print("Vous êtes endetté et l'URSAF est à vos trousses, vous avez 2 sessions pour rembourser votre dette, "
+        print("|⚖️| Vous êtes endetté ! L'URSAF est à vos trousses ! Vous avez 2 sessions pour rembourser votre dette, "
               "de plus la banque va vous prélevez 40% de vos gains à chaque vente.")
         self.ursaf_active = True
 
@@ -189,14 +189,14 @@ class Joueur :
         else:
             print("|❌| -Avide d'argent-")
             
-    # -> le joueur doit avoir pêché au moins 100 Merlins.
-        if self.compteur_de_merlin >= 100:
-            print("nouveau prix; |🎖️| -Le pêcheur devenu Légende-")
-            print("finir le jeu en ayant capturés plus de 100 merlins.\n")
+    # -> le joueur ne doit pas se faire remarquer par l'URSAF
+        if not self.ursaf_active and self.ursaf_compteur == 0:
+            print("nouveau prix; |🎖️| -Fantôme banquaire-")
+            print("finir le jeu sans se faire attrapé par l'URSAF.\n")
             print("Niveau de difficulté: 🟥")
             compteur_fins += 1
         else:
-            print("|❌| -Le pêcheur devenu Légende-")
+            print("|❌| -Fantôme banquaire-")
             
     # -> ici la console récupere le nombre de fois ou le joueur a eu une mer dorée
         if self.compteur_de_mers >= 2:
@@ -219,6 +219,7 @@ class Joueur :
 
         # force l'arrêt du programme
         sys.exit()
+
 
 
 
