@@ -3,6 +3,7 @@ from modules.validator2000 import Validateur
 
 class Marche:
     def __init__(self):
+        """Initialisation des prix initiaux du marché."""
         self.prix_maquereau = 3.0
         self.prix_aiglefin = 12.0
         self.prix_thon = 25.0
@@ -11,6 +12,7 @@ class Marche:
         self.prix_bibelot = 10000
 
     def __inflation(self) -> None:
+        """Gère l'augmentation des prix pour les poissons ainsi que du bibelot."""
         self.prix_maquereau = round(self.prix_maquereau * 1.1, 2)
         self.prix_aiglefin = round(self.prix_aiglefin * 1.1, 2)
         self.prix_thon = round(self.prix_thon * 1.1, 2)
@@ -19,6 +21,12 @@ class Marche:
         self.prix_bibelot = round(self.prix_bibelot * 1.05, 0)
 
     def boutique (self,joueur):
+        """
+        Permet au joueur d'améliorer son équipement ou d'acheter le bibelot final.
+
+        Args:
+            joueur: Instance du joueur actuel.
+        """
         joueur.voir_bourse()
         prix_glaciere = 50*(joueur.glaciere.niveau+1)**2+50*(joueur.glaciere.niveau+1)-100
         if joueur.glaciere.niveau == 4:
@@ -66,9 +74,21 @@ class Marche:
             joueur.affichage2()
 
     def vente(self, glaciere: Glaciere) -> int:
-        argent = 0
-        compte = glaciere.recuperer_stock()
+        """
+        Gère la vente des poissons de la glacière du joueur et l'inflation des prix pour la prochaine vente.
 
+        Args:
+            glaciere (Glaciere): Instance de la glacière du joueur.
+
+        Returns:
+            int: Montant total gagné par le joueur lors de la vente.
+        """
+        argent = 0 # Montant gagné lors de la vente
+        compte = glaciere.recuperer_stock() # Dictionnaire du stock de poissons dans la glacière
+
+        # Boucle de calcul des gains et ajustement des prix.
+        # Pour chaque poisson vendu dans chaque catégorie, le prix diminue de 1% par unité vendue.
+        # Cette boucle aurait pu être optimisée en utilisant la propriété lambda.
         for poisson in compte:
             if poisson == "Aiglefin":
                 argent += compte[poisson] * self.prix_aiglefin
@@ -86,9 +106,9 @@ class Marche:
                 argent += compte[poisson] * self.prix_maquereau
                 self.prix_maquereau = round(self.prix_maquereau * (0.99 ** compte[poisson]), 2)
 
-        glaciere.vider()
-        self.__inflation()
-        print( # retourne au joueur les nouveaux prix des poissons a la prochaine vente
+        glaciere.vider() # On vide la glacière.
+        self.__inflation() # On applique l'inflation des prix pour la prochaine vente.
+        print( # Affiche au joueur les prix des poissons pour la prochaine vente.
             f"🔍 Voila les nouveaux prix du marché |💠: {self.prix_maquereau} |💠💠: {self.prix_aiglefin} |\n|💠💠💠: "
             f"{self.prix_thon} |✨: {self.prix_merlin} |💀: {self.prix_fugu} |, à bientôt .\n")
         return argent
