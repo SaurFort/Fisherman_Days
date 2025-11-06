@@ -31,32 +31,33 @@ class Marche:
         prix_radar = 650
         if joueur.radar.niveau == 1:
             prix_radar = 'MAX'
-
-        choix = Validateur.choix(f"-VOUS ÊTES DANS LE MARCHÉ-\n1. Glacière+ [{prix_glaciere}💲]\n2. Filet+ [{prix_filet}💲]\n3. Radar [{prix_radar}💲] !\n4. Joli bibelot [{self.prix_bibelot}💲] ⭐ \n5.|⛔|Retour au port \n\n _", ["1","2","3","4","5","fugu&ships"])
-        # Condition de debug
+        #affiche au joueur les choix d'amélioration
+        choix = Validateur.choix(f"-VOUS ÊTES DANS LE MARCHÉ-\n1|⏫| Glacière + Réservoir [{prix_glaciere}💲]\n2|⏫| Filet [{prix_filet}💲]\n3|🆕| Radar [{prix_radar}💲] !\n4|⭐| Joli bibelot [{self.prix_bibelot}💲]  \n5.|⛔|Retour au port \n\n _", ["1","2","3","4","5","fugu&ships"])
+        # Condition de debug (chut c'est un secret)
         if choix == "fugu&ships":
             joueur.bourse.ajouter(1000000)
             joueur.voir_bourse()
         
-        if choix == "1":
+        if choix == "1": #améliore le capacité max de la glaciere, 
+                            #comme le reservoir de fioul est basé sur le double de la capacité max de la glaciere, il s'améliore automatiquement
             if joueur.glaciere.niveau < 4 and joueur.bourse.recuperer() >= prix_glaciere:
                 joueur.bourse.retirer(prix_glaciere)
                 joueur.glaciere.niveau += 1
-                print("✅ Votre Glacière a été amélioré avec succès ! ✅\n")
+                print("✅ Votre Glacière et votre Réservoir a été amélioré avec succès ! ✅\n")
                 
-        if choix == "2":
+        if choix == "2": # augmente les probabilités de trouver de bons poissons (+0% / +3% / +10%)
             if joueur.filet.niveau < 3 and joueur.bourse.recuperer() >= prix_filet:
                 joueur.bourse.retirer(prix_filet)
                 joueur.filet.niveau += 1
                 print("✅ Votre Filet a été amélioré avec succès ! ✅\n")
             
-        if choix == "3":
+        if choix == "3": # permet au joueur de voir les taux d'obtention de poissons en temps réel (une fois aquis)
             if joueur.radar.niveau < 1 and joueur.bourse.recuperer() >= prix_radar:
                 joueur.bourse.retirer(prix_radar)
                 joueur.radar.niveau += 1
                 print("✅ Votre Radar a été acquis avec succès ! ✅\n")
 
-        if choix == "4":
+        if choix == "4": # lance la phase finale du jeu qui sera dans "joueur"
             if joueur.bourse.recuperer() >= self.prix_bibelot:
                 joueur.fin(self.prix_bibelot)
             else:
@@ -87,7 +88,7 @@ class Marche:
 
         glaciere.vider()
         self.__inflation()
-        print(
+        print( # retourne au joueur les nouveaux prix des poissons a la prochaine vente
             f"🔍 Voila les nouveaux prix du marché |💠: {self.prix_maquereau} |💠💠: {self.prix_aiglefin} |\n|💠💠💠: "
-            f"{self.prix_thon} |✨: {self.prix_merlin} |💀: {self.prix_fugu} |.\n")
+            f"{self.prix_thon} |✨: {self.prix_merlin} |💀: {self.prix_fugu} |, à bientôt .\n")
         return argent
