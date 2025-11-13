@@ -40,7 +40,7 @@ class Marche:
         if joueur.radar.niveau == 1:
             prix_radar = 'MAX'
         #affiche au joueur les choix d'amélioration
-        choix = Validateur.choix(f"-VOUS ÊTES DANS LE MARCHÉ-\n1|⏫| Glacière + Réservoir [{prix_glaciere}💲]\n2|⏫| Filet [{prix_filet}💲]\n3|🆕| Radar [{prix_radar}💲] !\n4|⭐| Joli bibelot [{self.prix_bibelot}💲]  \n5.|⛔|Retour au port \n\n _", ["1","2","3","4","5","fugu&ships"])
+        choix = Validateur.choix(f"-VOUS ÊTES DANS LE MARCHÉ-\n1|⏫| Glacière + Réservoir [{prix_glaciere}💲]\n2|⏫| Filet [{prix_filet}💲]\n3|🆕| Radar [{prix_radar}💲] !\n4|⭐| Joli bibelot [{self.prix_bibelot}💲]  \n5|⛔|Retour au port \n\n _", ["1","2","3","4","5","fugu&ships"])
         # Condition de debug (chut c'est un secret)
         if choix == "fugu&ships":
             joueur.bourse.ajouter(1000000)
