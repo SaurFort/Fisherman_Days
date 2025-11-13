@@ -1,3 +1,4 @@
+import time
 from modules.marche import Marche
 from modules.glaciere import Glaciere
 from modules.filet import Filet
@@ -148,77 +149,93 @@ class Joueur :
         print("Fin.\n")
         print("Merci d'avoir joué")
         print("MoonCore Studio©\n\n")
+        time.sleep(10)
         
     #-> le nombre d'aides que nous avons lu (pour un total de 12)
         if len(self.aide.vu) == 12:
-            print("nouveau prix; |🎋| -Sur le bout des doigts-")
-            print("finir le jeu en ayant lu toutes les aides.\n")
-            print("Niveau de difficulté: 🟦")
+            print("NOUVEAU PRIX; |🎋| -Sur le bout des doigts-")
+            print("finir le jeu en ayant lu toutes les aides.")
+            print("Niveau de difficulté: 🟦\n")
             compteur_fins += 1
+            time.sleep(1)
+            
         else:
-            print("|❌| -Sur le bout des doigts-") #si le joueur n'a pas réussi le succès, seul le nom de celui ci lui est retourné (sans le niveau de difficulté)
-                                                    # cela peut lui permettre de trouver ce qu'il doit faire simplement avec le nom du succès
+            print("|❌| -Sur le bout des doigts-\n") #si le joueur n'a pas réussi le succès, seul le nom de celui ci lui est retourné (sans le niveau de difficulté)
+            time.sleep(1)                                        # cela peut lui permettre de trouver ce qu'il doit faire simplement avec le nom du succès
         
     #-> regarde le nombre d'améliorations achetés au marché, il faudra acheter tous les niveaux 
         #d'amélioration de la Glacière, le Filet et le Radar
         if self.glaciere.niveau == 4 and self.filet.niveau == 3 and self.radar.niveau == 1:
-            print("nouveau prix; |🔖| -Addict à la consommation-")
-            print("finir le jeu en achetant toutes les améliorations.\n")
-            print("Niveau de difficulté: 🟩")
+            print("NOUVEAU PRIX; |🔖| -Addict à la consommation-")
+            print("finir le jeu en achetant toutes les améliorations.")
+            print("Niveau de difficulté: 🟩\n")
             compteur_fins += 1
+            time.sleep(1)
         else:
-            print("|❌| -Addict à la consommation-")
+            print("|❌| -Addict à la consommation-\n")
+            time.sleep(1)
             
     #-> ici on regarde le prix actuel du bibelot, si il n'a pas encore dépassé le palier des 30K dollards, 
         #le succès est débloqué. Ce qui represente environ une vingtaines de sessions de pêche
         if prix_bibelot <= 30000:
-            print("nouveau prix; |🏷️| -Rapide comme l'éclair-")
-            print("finir le jeu en achetant le bibelot à moins de 30000💲.\n")
-            print("Niveau de difficulté: 🟨")
+            print("NOUVEAU PRIX; |🏷️| -Rapide comme l'éclair-")
+            print("finir le jeu en achetant le bibelot à moins de 30000💲.")
+            print("Niveau de difficulté: 🟨\n")
             compteur_fins += 1
+            time.sleep(1)
         else:
-            print("|❌| -Rapide comme l'éclair-")
+            print("|❌| -Rapide comme l'éclair-\n")
+            time.sleep(1)
             
     # -> le joueur doit simplement finir le jeu en ayant au moins 1 million de dollerd dans sa bours LORSQU'il achete le bibelot
         # cela ne prend pas en compte l'achat du bibelot  (bourse_actuelle - prix_bibelot) != bourse finale
         if self.bourse.recuperer() >= 1000000 :
-            print("nouveau prix; |📜| -Avide d'argent-")
-            print("finir le jeu en étant richissime.\n")
-            print("Niveau de difficulté: 🟧")
+            print("NOUVEAU PRIX; |📜| -Avide d'argent-")
+            print("finir le jeu en étant richissime.")
+            print("Niveau de difficulté: 🟧\n")
             compteur_fins += 1
+            time.sleep(1)
         else:
-            print("|❌| -Avide d'argent-")
+            print("|❌| -Avide d'argent-\n")
+            time.sleep(1)
             
     # -> le joueur ne doit pas se faire remarquer par l'URSAF
         if not self.ursaf_active and self.ursaf_compteur == 0:
-            print("nouveau prix; |🎖️| -Fantôme banquaire-")
-            print("finir le jeu sans se faire attrapé par l'URSAF.\n")
-            print("Niveau de difficulté: 🟥")
+            print("NOUVEAU PRIX; |🎖️| -Fantôme banquaire-")
+            print("finir le jeu sans se faire attrapé par l'URSAF.")
+            print("Niveau de difficulté: 🟥\n")
             compteur_fins += 1
+            time.sleep(1)
         else:
-            print("|❌| -Fantôme banquaire-")
+            print("|❌| -Fantôme banquaire-\n")
+            time.sleep(1)
             
     # -> ici la console récupere le nombre de fois ou le joueur a eu une mer dorée
         if self.compteur_de_mers >= 2:
-            print("nouveau prix; |🎫| -La ruée vers l'or-")
-            print("finir le jeu en ayant découvert 2 mers dorées.\n")
-            print("Niveau de difficulté: 🟪")
+            print("NOUVEAU PRIX; |🎫| -La ruée vers l'or-")
+            print("finir le jeu en ayant découvert 2 mers dorées.")
+            print("Niveau de difficulté: 🟪\n")
             compteur_fins += 1
+            time.sleep(1)
         else:
-            print("|❌| -La ruée vers l'or-")
+            print("|❌| -La ruée vers l'or-\n")
+            time.sleep(1)
         
         
         print("")
-        print(f"fins débloquées: {compteur_fins}/6\n")
+        print("")
+        print(f"[fins débloquées: {compteur_fins}/6]\n")
+        time.sleep(0.5)
 
         # -> permet de donner le dernier prix si tous les autres ont été rempli
         if compteur_fins == 6:
             print("toutes nos félicitations, vous avez complétez le jeu à 100% ! ")
-            print("nouveau prix; |👑| -Roi des mers-")
+            print("NOUVEAU PRIX; |👑| -Roi des mers-")
             print("finir le jeu en ayant débloqué tous les succès.\n")
 
         # force l'arrêt du programme
         sys.exit()
+
 
 
 
